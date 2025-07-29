@@ -196,7 +196,7 @@
             var popupText = "Incident Name: " + feature.properties.title + "<br>";
             popupText += "Date: " + date.toLocaleString()  + "<br>";
             //popupText += "Origin: " + feature.properties.geometry.coordinates[1] + ", " + feature.properties.geometry.coordinates[0] + "<br>";
-            popupText += "Origin: " + feature.properties.geometry.coordinates + "<br>";
+            popupText += "Origin: " + feature.properties.geometry + "<br>";
             //popupText += "Depth: " + feature.properties.geometry.coordinates[2] + "km<br>";
             popupText += "Size: " + feature.properties.mag;
             layer.bindPopup(popupText);
