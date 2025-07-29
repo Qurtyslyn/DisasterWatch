@@ -195,8 +195,8 @@
             var date = new Date(feature.properties.time);
             var popupText = "Incident Name: " + feature.properties.title + "<br>";
             popupText += "Discovery Date: " + date.toLocaleString()  + "<br>";
-            popupText += "Origin: " + feature.properties.coordinates[1] + ", " + feature.properties.coordinates[0] + "<br>";
-            popupText += "Depth: " + feature.properties.coordinates[2] + "km<br>";
+            //popupText += "Origin: " + feature.properties.coordinates[1] + ", " + feature.properties.coordinates[0] + "<br>";
+            //popupText += "Depth: " + feature.properties.coordinates[2] + "km<br>";
             popupText += "Size: " + feature.properties.mag;
             layer.bindPopup(popupText);
         }
