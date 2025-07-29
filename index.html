@@ -117,7 +117,7 @@
         //Create the Map, Centered south of Wendover, UT
         map = L.map('map', {
             center: [40.643901, -114.131361],
-            zoom: 14,
+            zoom: 6,
             layers: [topo],
             doubleClickZoom: false
         });
@@ -197,7 +197,7 @@
             popupText += "Date: " + date.toLocaleString()  + "<br>";
             popupText += "Origin: " + feature.geometry.coordinates[1] + ", " + feature.geometry.coordinates[0] + "<br>";
             popupText += "Depth: " + feature.geometry.coordinates[2] + "km<br>";
-            popupText += "Size: " + feature.properties.mag;
+            popupText += "Size: M" + feature.properties.mag;
             layer.bindPopup(popupText);
         }
 
