@@ -44,8 +44,8 @@
         //Get GeoJSON file for fire boundaries from https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Interagency_Perimeters_Current/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson
         var url = 'https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Interagency_Perimeters_Current/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson';
 
-        response = await fetch(url);
-        fireJSON = response.json()
+        //response = fetch(url).then(response => response.json());
+        //fireJSON = response.json()
 
         //Get the unique values in an Array and return an Array of only those values
         function getUniqueValues(arr)
@@ -183,7 +183,10 @@
         L.control.layers.tree(baseTree,overlayTree,{selectorBack: true}).addTo(map);
 
         //Add Fire Layer to Map
-        L.geoJSON(fireJSON).addTo(map)
+        //L.geoJSON(fireJSON).addTo(map)
+        const response = fetch(url).then(response => response.json()).then(response => {
+            L.geoJson(response).addTo(map);
+        })
             
         var overlays = [];    
 
