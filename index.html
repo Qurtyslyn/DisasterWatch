@@ -163,7 +163,7 @@
         //On Each Feature function for fire map
         function onEachFeatureFire(feature, layer)
         {
-            var date = newDate(feature.properties.attr_FireDiscoveryDateTime);
+            var date = new Date(feature.properties.attr_FireDiscoveryDateTime);
             var popupText = "Incident Name: " + feature.properties.poly_IncidentName + "<br>";
             popupText += "Discovery Date: " + date.toDateString() + " " + date.toTimeString()  + "<br>";
             popupText += "Origin: " + feature.properties.attr_InitialLatitude + ", " + feature.properties.attr_InitialLongitude + "<br>";
