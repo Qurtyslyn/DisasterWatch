@@ -154,7 +154,7 @@
                 }
             ]
         };
-        var overlayTree = {label: 'Race Tracks', children: []};
+        var overlayTree = {label: 'Placeholder', children: []};
 
 
         //Add Layer to Map
@@ -172,7 +172,6 @@
         }
  
         //Add Fire Layer to Map
-        //L.geoJSON(fireJSON).addTo(map)
         const response = fetch(url).then(response => response.json()).then(response => {
             L.geoJson(response, {
                 style: function(feature) {
@@ -187,6 +186,14 @@
                 },
                 onEachFeature: onEachFeatureFire
             }
+            
+        ).addTo(map);
+        })
+
+        var equrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson";
+        //Add Earthquake Layer to Map
+        const eqresponse = fetch(equrl).then(eqresponse => eqresponse.json()).then(eqresponse => {
+            L.geoJson(eqresponse
             
         ).addTo(map);
         })
