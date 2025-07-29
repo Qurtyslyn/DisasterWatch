@@ -195,7 +195,14 @@
 
         var CAUrl = "https://cwfis.cfs.nrcan.gc.ca/geoserver/public/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=public:m3_polygons_current&outputFormat=json";
         const responseCA = fetch(CAUrl).then(responseCA => responseCA.json()).then(responseCA => {
-            L.geoJson(responseCA
+            L.geoJson(responseCA, {
+                style: function(feature) {
+                    
+                        return {color: "#FF0000"}
+                    
+                }
+                
+            }
             
         ).addTo(map);
         })
