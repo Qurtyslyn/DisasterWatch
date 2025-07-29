@@ -164,8 +164,10 @@
         function onEachFeatureFire(feature, layer)
         {
             var date = new Date(feature.properties.attr_FireDiscoveryDateTime);
+            var updated = new Date(feature.properties.poly_DateCurrent);
             var popupText = "Incident Name: " + feature.properties.poly_IncidentName + "<br>";
             popupText += "Discovery Date: " + date.toLocaleString()  + "<br>";
+            popupText += "Last Updated: " + updated.toLocaleString();
             popupText += "Origin: " + feature.properties.attr_InitialLatitude + ", " + feature.properties.attr_InitialLongitude + "<br>";
             popupText += "Estimated Size: " + (Math.round(feature.properties.poly_Acres_AutoCalc * 100) / 100);
             layer.bindPopup(popupText);
