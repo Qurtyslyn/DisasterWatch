@@ -190,6 +190,17 @@
         ).addTo(map);
         })
 
+        function onEachFeatureEQ(feature, layer)
+        {
+            var date = new Date(feature.properties.time);
+            var popupText = "Incident Name: " + feature.properties.title + "<br>";
+            popupText += "Discovery Date: " + date.toLocaleString()  + "<br>";
+            popupText += "Origin: " + feature.properties.coordinates[1] + ", " + feature.properties.coordinates[0] + "<br>";
+            popupText += "Depth: " + feature.properties.coordinates[2] + "km<br>";
+            popupText += "Size: " + feature.properties.mag;
+            layer.bindPopup(popupText);
+        }
+
         var equrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson";
         //Add Earthquake Layer to Map
         const eqresponse = fetch(equrl).then(eqresponse => eqresponse.json()).then(eqresponse => {
@@ -211,10 +222,10 @@
                     }
 
                     var options = {
-                        radius: feature.properties.mag+10,
+                        radius: feature.properties.mag + 5,
                         fillColor: color,
-                        color: "#000",
-                        weight: 1
+                        fillOpacity: 0.8,
+                        stroke: false,
 
                     };
 
