@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Offroad Race Map Archive</title>
+    <!--Leaflet CSS and JS Plugins -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+
+   <!--<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    -->
+    <link rel="stylesheet" href="css/styledLayerControl.css" />
+	<script src="src/styledLayerControl.js"></script>
+    
+    <!-- LeafletGPX plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/gpx.min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/2.1.2/gpx.min.js" defer></script>-->
+
+    <script src="leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="leaflet.awesome-markers.css">
+    <script src="https://kit.fontawesome.com/8064aa9388.js" crossorigin="anonymous"></script>
+
+    <!-- Leaflet Layer Tree Plug in https://github.com/jjimenezshaw/Leaflet.Control.Layers.Tree -->
+    <script src="L.Control.Layers.Tree.js"></script>
+    <link rel="stylesheet" href="L.Control.Layers.Tree.css" />
+    <style>
+      #map {
+        width: 100%;
+        height: 960px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script type="text/javascript">
+
+        document.getElementById("map").style.height = (window.innerHeight - 20) + "px";
+
+        //Get the unique values in an Array and return an Array of only those values
+        function getUniqueValues(arr)
+        {
+            var newArr = [];
+            for(let i in arr)
+            {
+                if(newArr.indexOf(arr[i]) == -1)
+                {
+                    newArr.push(arr[i]);
+                }
+            }
+            
+            return newArr;
+        }
+
+        //Creat a new Route for display based on a GPX file
+        function newRoute(course, color)
+        {
+            var route = new L.GPX(course, {
+                async: true,
+                polyline_options: {
+                    color: color,
+                    opacity: 0.75,
+                    weight: 5,
+                    lineCap: 'round'
+                },
+                marker_options: {
+                    iconSize: [25,25],
+                    startIconUrl: '',
+                    endIconUrl: '',
+                    shadowUrl: '',
+                    /*wptIconUrls: {
+                        'Checkpoint': 'Icons/' + color + '-checkpoint.png',
+                        'Recovery': 'Icons/' + color + '-recovery.png',
+                        'RoadCrossing': 'Icons/' + color + '-roadcrossing.png',
+                        'StartFinish': 'Icons/' + color + '-startfinish.png',
+                        'Radio': 'Icons/' + color + '-radio.png',
+                        'Pits': 'Icons/' + color + '-pits.png',
+                        'Monitor': 'Icons/' + color + '-monitor.png',
+                        '': 'Icons/' + color + '.png'
+                    }*/
+                   wptIconUrls: null
+                },
+                
+            });
+
+            return route;
+        }
+    
+        //Colors to rotate through for routes
+        var colors = ['red','teal','darkorange','darkgreen','hotpink','blue','gold','violet','maroon','deepskyblue'];
+
+        //Create Topo layer of the map
+        var topo = L.tileLayer('https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png', {
+            maxZoom: 20,
+            attribution: '<a href="https://github.com/cyclosm/cyclosm-cartocss-style/releases" title="CyclOSM - Open Bicycle render">CyclOSM</a> | Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        });
+
+        //Create the Streets layer of the Map
+        var streets = L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            maxZoom: 18,
+            subdomains: ['a','b','c']
+        });
+
+        //Create Imagery Layer of the Map
+        var imagery = L.tileLayer('https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryTopo/MapServer/tile/{z}/{y}/{x}', {
+            maxZoom: 16,
+            attribution: 'Tiles courtesy of the <a href="https://usgs.gov/">U.S. Geological Survey</a>'
+        });
+
+        //Create the Map, Centered south of Wendover, UT
+        map = L.map('map', {
+            center: [40.643901, -114.131361],
+            zoom: 14,
+            layers: [topo],
+            doubleClickZoom: false
+        });
+
+        //Create Background Options for the Map Menu
+        var backgrounds = [
+            {
+                groupName : "Background Map",
+                expanded : true,
+                layers : {
+                    "Topographic" : topo,
+                    "Basic" : streets,
+                    "Satellite" : imagery
+                }
+          }
+          ];
+
+        //Create an array of Files that are currently in the Maps Directory
+        var files = [
+            "BITD-Bluewater Desert Challenge-2020.gpx",
+            "BITD-Silver State 300-2020.gpx",
+            "BITD-Silver State 300-2025.gpx",
+            "BITD-Vegas to Reno-2020.gpx",
+            "BOR-Delle-1990.gpx",
+            "BOR-Dino Dash-2016.gpx",
+            "BOR-Dino Dash-2017.gpx",
+            "BOR-Dino Dash-2018.gpx",
+            "BOR-Dino Dash-2019.gpx",
+            "BOR-Dino Dash-2015.gpx",
+            "BOR-Jackpot-2011.gpx",
+            "BOR-Jackpot-2014.gpx",
+            "BOR-Jackpot-2016.gpx",
+            "BOR-Jackpot-2017.gpx",
+            "BOR-Jackpot-2018.gpx",
+            "BOR-Jackpot-2019.gpx",
+            "BOR-Jackpot-2020.gpx",
+            "BOR-Jackpot-2021.gpx",
+            "BOR-Junction Jam-2025.gpx",
+            "BOR-Knolls-2017.gpx",
+            "BOR-Knolls-2019.gpx",
+            "BOR-Knolls-2020.gpx",
+            "BOR-Knolls-2021.gpx",
+            "BOR-Vernal Fall-2016.gpx",
+            "BOR-Dino Dash-2021.gpx",
+            "BOR-LittleSahara-2021.gpx",
+            "BOR-Wendover Fall-2001.gpx",
+            "BOR-Wendover Fall-2007.gpx",
+            "BOR-Wendover Fall-2008.gpx",
+            "BOR-Wendover Fall-2009.gpx",
+            "BOR-Wendover Fall-2013.gpx",
+            "BOR-Wendover Fall-2014.gpx",
+            "BOR-Wendover Spring-2001.gpx",
+            "BOR-Wendover Spring-2007.gpx",
+            "BOR-Wendover Spring-2008.gpx",
+            "BOR-Wendover Spring-2009.gpx",
+            "BOR-Wendover Spring-2014.gpx",
+            "BOR-Wendover-2002.gpx",
+            "BOR-Wendover-2003.gpx",
+            "BOR-Wendover-2004.gpx",
+            "BOR-Wendover-2005.gpx",
+            "BOR-Wendover-2006.gpx",
+            "BOR-Wendover-2010.gpx",
+            "BOR-Wendover-2011.gpx",
+            "BOR-Wendover-2018.gpx",
+            "BOR-Wendover-2019.gpx",
+            "CODE-Laguna Salada Grand Prix-2025.gpx",
+            "CODE-La Tetera Night Race-2025.gpx",
+            "Independent-Mint 400-2020.gpx",
+            "KOH-Desert Challege-2025.gpx",
+            "KOH-King of the Hammers-2025.gpx",
+            "KOTK-King of the Kastle-2025.gpx",
+            "RECORD-San Vincente 200-2020.gpx",
+            "RECORD-El Jefe 300-2025.gpx",
+            "RECORD-Ensenada to San Felipe 250-2025.gpx",
+            "SCORE-Baja 1000-2020.gpx",
+            "SCORE-San Felipe 250-2025.gpx",
+            "SCORE-San Felipe 250 Motos-2025.gpx",
+            "SCORE-Baja 500-2025.gpx",
+            "SCORE-Baja 1000-2023.gpx",
+            "SCORE-Baja 1000-2024.gpx",
+            "SCORE-Baja 500 Sportsman-2025.gpx",
+            "SNORE-SNORE 250-2021.gpx",
+            "SNORE-Battle At Primm-2025.gpx",
+            "SNORE-Caliente 250-2025.gpx",
+            "SNORE-SNORE 250-2025.gpx",
+            "Ultra4-Nationals-2021.gpx",
+            "VORRA-Fallon 250-2020.gpx",
+            "VORRA-Hawthorne 275-2021.gpx",
+            "VORRA-Yerington 300-2020.gpx",
+            "VORRA-Nevada Wild 400-2025.gpx",
+            "VORRA-Prospector 250-2025.gpx",
+            "YORR-Big Sky 200-2025.gpx",
+            "YORR-High Desert 100-2025.gpx"
+         ];
+        
+        
+        // Get unique locations for races
+        var locations = [];
+        var organizations = [];
+        
+        for(let index in files)
+        {
+            //Name format for files is Organization Abbreviations-Race Name-Year.GPX
+            var nameArray = files[index].toString().split('-');
+            
+            locations.push(nameArray[1]);
+            organizations.push(nameArray[0]);
+            
+        }
+        
+        //Get Unique values for Locations and Organizations for Menu
+        var list = getUniqueValues(locations);
+        var orgs = getUniqueValues(organizations);
+
+        var baseTree = {label: 'Base Layers',
+            children: [
+                {
+                    label: 'Topographic',
+                    layer: topo
+                },
+                {
+                    label: 'Basic',
+                    layer: streets
+                },
+                {
+                    label: 'Satellite',
+                    layer: imagery
+                }
+            ]
+        };
+        var overlayTree = {label: 'Race Tracks', children: []};
+        
+        //Add organizations to Menu
+        for(let i in orgs)
+        {
+            overlayTree.children.push({label: orgs[i], collapsed: true, selectAllCheckbox: true, children: []});
+        }
+
+        //Add race maps to Menu
+        var colorCount = 0;
+        for(let i in files.sort())
+        {
+            var nameArray = files[i].toString().split('-');
+            var name = files[i].toString().split('-')[1] + " " + files[i].toString().split('-')[2];
+
+            if(colorCount == colors.length)
+            {
+                colorCount = 0;
+            }
+            var course = 'Maps/' + files[i];
+
+            var group = new L.LayerGroup();
+
+            newRoute(course,colors[colorCount]).on('loaded', function(e) {
+                    map.fitBounds(e.target.getBounds());
+            }).addTo(group);
+            
+            //Add the Locations to the Tree under the Orgs
+            for(let j in overlayTree.children)
+            {
+                if(overlayTree.children[j].label == nameArray[0])
+                {
+                    if(overlayTree.children[j].children.length == 0)
+                    {
+                        overlayTree.children[j].children.push({label: nameArray[1], collapsed: true, selectAllCheckbox: true, children: []});
+                        overlayTree.children[j].children[0].children.push({label: name, layer: group});
+                    }
+                    else if (overlayTree.children[j].children[overlayTree.children[j].children.length-1].label == nameArray[1])
+                    {
+                        overlayTree.children[j].children[overlayTree.children[j].children.length-1].children.push({label: name, layer: group});
+                    }
+                    else
+                    {
+                        overlayTree.children[j].children.push({label: nameArray[1], collapsed: true, selectAllCheckbox: true, children: []});
+                        overlayTree.children[j].children[overlayTree.children[j].children.length-1].children.push({label: name, layer: group});
+                    }
+                }
+            }
+
+            colorCount++;
+
+
+        }
+
+        //Add Layer to Map
+        L.control.layers.tree(baseTree,overlayTree,{selectorBack: true}).addTo(map);
+            
+        var overlays = [];    
+
+        var options = {
+            collapsed : false,
+            group_maxHeight: "500px"
+        }
+
+        //Resize the Map to fit the current window size
+        function resizeMapWithWindowChange()
+        {
+            document.getElementById("map").style.height = (window.innerHeight - 20) + "px";
+            map.invalidateSize();
+        }
+        
+        window.addEventListener("resize", resizeMapWithWindowChange);
+
+    </script>
+  </body>
+</html>
