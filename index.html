@@ -163,7 +163,18 @@
         //Add Fire Layer to Map
         //L.geoJSON(fireJSON).addTo(map)
         const response = fetch(url).then(response => response.json()).then(response => {
-            L.geoJson(response).addTo(map);
+            L.geoJson(response, {
+                style: function(feature) {
+                    if(feature.properties.attr_PercentContained < 50)
+                    {   
+                        return {color: "#FF0000"}
+                    }
+                    else
+                    {
+                        return {color: "#0000FF"}
+                    }
+                }
+            }).addTo(map);
         })
             
         var overlays = [];    
