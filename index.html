@@ -41,6 +41,12 @@
 
         document.getElementById("map").style.height = (window.innerHeight - 20) + "px";
 
+        //Get GeoJSON file for fire boundaries from https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Interagency_Perimeters_Current/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson
+        var url = 'https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Interagency_Perimeters_Current/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson';
+
+        response = await fetch(url);
+        fireJSON = response.json()
+
         //Get the unique values in an Array and return an Array of only those values
         function getUniqueValues(arr)
         {
@@ -133,83 +139,7 @@
           }
           ];
 
-        //Create an array of Files that are currently in the Maps Directory
-        var files = [
-            "BITD-Bluewater Desert Challenge-2020.gpx",
-            "BITD-Silver State 300-2020.gpx",
-            "BITD-Silver State 300-2025.gpx",
-            "BITD-Vegas to Reno-2020.gpx",
-            "BOR-Delle-1990.gpx",
-            "BOR-Dino Dash-2016.gpx",
-            "BOR-Dino Dash-2017.gpx",
-            "BOR-Dino Dash-2018.gpx",
-            "BOR-Dino Dash-2019.gpx",
-            "BOR-Dino Dash-2015.gpx",
-            "BOR-Jackpot-2011.gpx",
-            "BOR-Jackpot-2014.gpx",
-            "BOR-Jackpot-2016.gpx",
-            "BOR-Jackpot-2017.gpx",
-            "BOR-Jackpot-2018.gpx",
-            "BOR-Jackpot-2019.gpx",
-            "BOR-Jackpot-2020.gpx",
-            "BOR-Jackpot-2021.gpx",
-            "BOR-Junction Jam-2025.gpx",
-            "BOR-Knolls-2017.gpx",
-            "BOR-Knolls-2019.gpx",
-            "BOR-Knolls-2020.gpx",
-            "BOR-Knolls-2021.gpx",
-            "BOR-Vernal Fall-2016.gpx",
-            "BOR-Dino Dash-2021.gpx",
-            "BOR-LittleSahara-2021.gpx",
-            "BOR-Wendover Fall-2001.gpx",
-            "BOR-Wendover Fall-2007.gpx",
-            "BOR-Wendover Fall-2008.gpx",
-            "BOR-Wendover Fall-2009.gpx",
-            "BOR-Wendover Fall-2013.gpx",
-            "BOR-Wendover Fall-2014.gpx",
-            "BOR-Wendover Spring-2001.gpx",
-            "BOR-Wendover Spring-2007.gpx",
-            "BOR-Wendover Spring-2008.gpx",
-            "BOR-Wendover Spring-2009.gpx",
-            "BOR-Wendover Spring-2014.gpx",
-            "BOR-Wendover-2002.gpx",
-            "BOR-Wendover-2003.gpx",
-            "BOR-Wendover-2004.gpx",
-            "BOR-Wendover-2005.gpx",
-            "BOR-Wendover-2006.gpx",
-            "BOR-Wendover-2010.gpx",
-            "BOR-Wendover-2011.gpx",
-            "BOR-Wendover-2018.gpx",
-            "BOR-Wendover-2019.gpx",
-            "CODE-Laguna Salada Grand Prix-2025.gpx",
-            "CODE-La Tetera Night Race-2025.gpx",
-            "Independent-Mint 400-2020.gpx",
-            "KOH-Desert Challege-2025.gpx",
-            "KOH-King of the Hammers-2025.gpx",
-            "KOTK-King of the Kastle-2025.gpx",
-            "RECORD-San Vincente 200-2020.gpx",
-            "RECORD-El Jefe 300-2025.gpx",
-            "RECORD-Ensenada to San Felipe 250-2025.gpx",
-            "SCORE-Baja 1000-2020.gpx",
-            "SCORE-San Felipe 250-2025.gpx",
-            "SCORE-San Felipe 250 Motos-2025.gpx",
-            "SCORE-Baja 500-2025.gpx",
-            "SCORE-Baja 1000-2023.gpx",
-            "SCORE-Baja 1000-2024.gpx",
-            "SCORE-Baja 500 Sportsman-2025.gpx",
-            "SNORE-SNORE 250-2021.gpx",
-            "SNORE-Battle At Primm-2025.gpx",
-            "SNORE-Caliente 250-2025.gpx",
-            "SNORE-SNORE 250-2025.gpx",
-            "Ultra4-Nationals-2021.gpx",
-            "VORRA-Fallon 250-2020.gpx",
-            "VORRA-Hawthorne 275-2021.gpx",
-            "VORRA-Yerington 300-2020.gpx",
-            "VORRA-Nevada Wild 400-2025.gpx",
-            "VORRA-Prospector 250-2025.gpx",
-            "YORR-Big Sky 200-2025.gpx",
-            "YORR-High Desert 100-2025.gpx"
-         ];
+        
         
         
         // Get unique locations for races
@@ -247,61 +177,13 @@
             ]
         };
         var overlayTree = {label: 'Race Tracks', children: []};
-        
-        //Add organizations to Menu
-        for(let i in orgs)
-        {
-            overlayTree.children.push({label: orgs[i], collapsed: true, selectAllCheckbox: true, children: []});
-        }
 
-        //Add race maps to Menu
-        var colorCount = 0;
-        for(let i in files.sort())
-        {
-            var nameArray = files[i].toString().split('-');
-            var name = files[i].toString().split('-')[1] + " " + files[i].toString().split('-')[2];
-
-            if(colorCount == colors.length)
-            {
-                colorCount = 0;
-            }
-            var course = 'Maps/' + files[i];
-
-            var group = new L.LayerGroup();
-
-            newRoute(course,colors[colorCount]).on('loaded', function(e) {
-                    map.fitBounds(e.target.getBounds());
-            }).addTo(group);
-            
-            //Add the Locations to the Tree under the Orgs
-            for(let j in overlayTree.children)
-            {
-                if(overlayTree.children[j].label == nameArray[0])
-                {
-                    if(overlayTree.children[j].children.length == 0)
-                    {
-                        overlayTree.children[j].children.push({label: nameArray[1], collapsed: true, selectAllCheckbox: true, children: []});
-                        overlayTree.children[j].children[0].children.push({label: name, layer: group});
-                    }
-                    else if (overlayTree.children[j].children[overlayTree.children[j].children.length-1].label == nameArray[1])
-                    {
-                        overlayTree.children[j].children[overlayTree.children[j].children.length-1].children.push({label: name, layer: group});
-                    }
-                    else
-                    {
-                        overlayTree.children[j].children.push({label: nameArray[1], collapsed: true, selectAllCheckbox: true, children: []});
-                        overlayTree.children[j].children[overlayTree.children[j].children.length-1].children.push({label: name, layer: group});
-                    }
-                }
-            }
-
-            colorCount++;
-
-
-        }
 
         //Add Layer to Map
         L.control.layers.tree(baseTree,overlayTree,{selectorBack: true}).addTo(map);
+
+        //Add Fire Layer to Map
+        L.geoJSON(fireJSON).addTo(map)
             
         var overlays = [];    
 
