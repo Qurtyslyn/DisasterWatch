@@ -160,6 +160,13 @@
         //Add Layer to Map
         L.control.layers.tree(baseTree,overlayTree,{selectorBack: true}).addTo(map);
 
+        //On Each Feature function for fire map
+        function onEachFeatureFire(feature, layer)
+        {
+            var popupText = 'Incident Name: ${feature.properties.poly_IncidentName}';
+            layer.bindPopup(popupText);
+        }
+ 
         //Add Fire Layer to Map
         //L.geoJSON(fireJSON).addTo(map)
         const response = fetch(url).then(response => response.json()).then(response => {
@@ -174,7 +181,9 @@
                         return {color: "#00FF00"}
                     }
                 }
-            }).addTo(map);
+            },
+            onEachFeatureFire
+        ).addTo(map);
         })
             
         var overlays = [];    
