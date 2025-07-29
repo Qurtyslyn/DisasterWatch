@@ -171,7 +171,7 @@
             var popupText = "Incident Name: " + feature.properties.poly_IncidentName + "<br>";
             popupText += "Discovery Date: " + feature.properties.attr_FireDiscoveryDateTime + "<br>";
             popupText += "Origin: " + feature.properties.attr_InitialLatitude + ", " + feature.properties.attr_InitialLongitude + "<br>";
-            popupText += "Estimated Size: " + (Math.Round(feature.properties.poly_Acres_AutoCalc * 100) / 100);
+            popupText += "Estimated Size: " + (Math.round(feature.properties.poly_Acres_AutoCalc * 100) / 100);
             layer.bindPopup(popupText);
         }
  
