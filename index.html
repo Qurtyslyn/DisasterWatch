@@ -163,7 +163,7 @@
         //On Each Feature function for fire map
         function onEachFeatureFire(feature, layer)
         {
-            var popupText = 'Incident Name: ${feature.properties.poly_IncidentName}';
+            var popupText = "Incident Name: " + feature.properties.poly_IncidentName;
             layer.bindPopup(popupText);
         }
  
