@@ -193,9 +193,34 @@
         var equrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson";
         //Add Earthquake Layer to Map
         const eqresponse = fetch(equrl).then(eqresponse => eqresponse.json()).then(eqresponse => {
-            L.geoJson(eqresponse
+            L.geoJson(eqresponse, {
+                pointToLayer: function (feature, latlng)
+                {
+                    var color = ""
+                    if(feature.properties.mag < 3)
+                    {
+                        color = "#0000FF";
+                    }
+                    else if(feature.properties.mag < 5)
+                    {
+                        color = "#00FF00";
+                    }
+                    else
+                    {
+                        color = "#FF0000";
+                    }
+
+                    var options = {
+                        radius: feature.properties.mag,
+                        fillColor: color,
+                        color: "#000"
+
+                    };
+
+                    return L.circleMarker(latlng, options);
+                }
             
-        ).addTo(map);
+        }).addTo(map);
         })
             
         var overlays = [];    
