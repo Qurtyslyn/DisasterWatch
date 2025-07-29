@@ -230,7 +230,8 @@
                     };
 
                     return L.circleMarker(latlng, options);
-                }
+                },
+                onEachFeature: onEachFeatureEQ
             
         }).addTo(map);
         })
