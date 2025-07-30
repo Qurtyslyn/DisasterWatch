@@ -256,7 +256,7 @@
         var nwsurl = "https://api.weather.gov/alerts/active?status=actual";
 
         //Add NWS Alerts Layer to Map
-        const NWSresponse = fetch(nwsurl, {headers: {"accept": "application/geo+json"}}).then(NWSresponse => NWSresponse.json()).then(NWSresponsese => {
+        const NWSresponse = fetch(nwsurl, {headers: {"accept": "application/geo+json"}}).then(NWSresponse => NWSresponse.json()).then(NWSresponse => {
             L.geoJson(NWSresponse, {
                 style: function(feature) {
                     return {color: "#FF00FF"}
