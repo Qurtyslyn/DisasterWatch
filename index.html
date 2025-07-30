@@ -178,14 +178,18 @@
         const response = fetch(url).then(response => response.json()).then(response => {
             L.geoJson(response, {
                 style: function(feature) {
-                    if(feature.properties.attr_PercentContained < 50)
-                    {   
-                        return {color: "#FF0000"}
-                    }
-                    else
+                    var opacity = 1 -(feature.properties.attr_PercentContained / 100)
+
+                    if(opacity < 0.3)
                     {
-                        return {color: "#00FF00"}
+                        opacity = 0.3;
                     }
+                    else if (opacity > 0.65)
+                    {
+                        opacity = 0.65;
+                    }
+
+                    return {color: "#FF0000", fillOpacity: opacity}
                 },
                 onEachFeature: onEachFeatureFire
             }
