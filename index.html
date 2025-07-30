@@ -37,63 +37,14 @@
 
         document.getElementById("map").style.height = (window.innerHeight - 20) + "px";
 
-        //Get GeoJSON file for fire boundaries from https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Interagency_Perimeters_Current/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson
-        var url = 'https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Interagency_Perimeters_Current/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson';
+        //URL Configs for each source
 
-        //response = fetch(url).then(response => response.json());
-        //fireJSON = response.json()
+        var fireURL = 'https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Interagency_Perimeters_Current/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson';
+        var CAUrl = "https://cwfis.cfs.nrcan.gc.ca/geoserver/public/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=public:m3_polygons_current&outputFormat=json";
+        var earthquakeURL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson";
+        var nwsURL = "https://api.weather.gov/alerts/active?status=actual";
 
-        //Get the unique values in an Array and return an Array of only those values
-        function getUniqueValues(arr)
-        {
-            var newArr = [];
-            for(let i in arr)
-            {
-                if(newArr.indexOf(arr[i]) == -1)
-                {
-                    newArr.push(arr[i]);
-                }
-            }
-            
-            return newArr;
-        }
-
-        //Creat a new Route for display based on a GPX file
-        function newRoute(course, color)
-        {
-            var route = new L.GPX(course, {
-                async: true,
-                polyline_options: {
-                    color: color,
-                    opacity: 0.75,
-                    weight: 5,
-                    lineCap: 'round'
-                },
-                marker_options: {
-                    iconSize: [25,25],
-                    startIconUrl: '',
-                    endIconUrl: '',
-                    shadowUrl: '',
-                    /*wptIconUrls: {
-                        'Checkpoint': 'Icons/' + color + '-checkpoint.png',
-                        'Recovery': 'Icons/' + color + '-recovery.png',
-                        'RoadCrossing': 'Icons/' + color + '-roadcrossing.png',
-                        'StartFinish': 'Icons/' + color + '-startfinish.png',
-                        'Radio': 'Icons/' + color + '-radio.png',
-                        'Pits': 'Icons/' + color + '-pits.png',
-                        'Monitor': 'Icons/' + color + '-monitor.png',
-                        '': 'Icons/' + color + '.png'
-                    }*/
-                   wptIconUrls: null
-                },
-                
-            });
-
-            return route;
-        }
-    
-        //Colors to rotate through for routes
-        var colors = ['red','teal','darkorange','darkgreen','hotpink','blue','gold','violet','maroon','deepskyblue'];
+        //Create Map Base Layers
 
         //Create Topo layer of the map
         var topo = L.tileLayer('https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png', {
@@ -133,12 +84,10 @@
                     "Basic" : streets,
                     "Satellite" : imagery
                 }
-          }
+            }
           ];
 
-        
-        
-
+        //Add Base Layers Selection Tree
         var baseTree = {label: 'Base Layers',
             children: [
                 {
@@ -155,6 +104,8 @@
                 }
             ]
         };
+
+        //Add Overlay Options to Selection Tree
         var overlayTree = {label: 'Placeholder', children: []};
 
 
@@ -176,7 +127,7 @@
         }
  
         //Add Fire Layer to Map
-        const response = fetch(url).then(response => response.json()).then(response => {
+        const response = fetch(fireURL).then(response => response.json()).then(response => {
             L.geoJson(response, {
                 style: function(feature) {
                     var opacity = 1 -(feature.properties.attr_PercentContained / 100)
@@ -198,7 +149,7 @@
         ).addTo(map);
         })
 
-        var CAUrl = "https://cwfis.cfs.nrcan.gc.ca/geoserver/public/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=public:m3_polygons_current&outputFormat=json";
+
         const responseCA = fetch(CAUrl).then(responseCA => responseCA.json()).then(responseCA => {
             L.geoJson(responseCA, {
                 style: function(feature) {
@@ -223,9 +174,9 @@
             layer.bindPopup(popupText);
         }
 
-        var equrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson";
+        
         //Add Earthquake Layer to Map
-        const eqresponse = fetch(equrl).then(eqresponse => eqresponse.json()).then(eqresponse => {
+        const eqresponse = fetch(earthquakeURL).then(eqresponse => eqresponse.json()).then(eqresponse => {
             L.geoJson(eqresponse, {
                 pointToLayer: function (feature, latlng)
                 {
@@ -271,10 +222,10 @@
             layer.bindPopup(popupText);
         }
 
-        var nwsurl = "https://api.weather.gov/alerts/active?status=actual";
+        
 
         //Add NWS Alerts Layer to Map
-        const NWSresponse = fetch(nwsurl, {headers: {"accept": "application/geo+json"}}).then(NWSresponse => NWSresponse.json()).then(NWSresponse => {
+        const NWSresponse = fetch(nwsURL, {headers: {"accept": "application/geo+json"}}).then(NWSresponse => NWSresponse.json()).then(NWSresponse => {
             L.geoJson(NWSresponse, {
                 style: function(feature) {
                     switch(feature.properties.event) {
@@ -287,6 +238,7 @@
                         case "Special Marine Warning" : return {color: "#F57627",fillColor: "#F5E427"}; break;
                         case "Severe Thunderstorm Warning" : return {color: "#F57627",fillColor: "#F5A327"}; break;
                         case "Special Weather Statement" : return {color: "#FF00FF",fillColor: "#FF00FF"}; break;
+                        case "Marine Weather Statement" : return {color: "#FF00FF",fillColor: "#F5E427"}; break;
 
                     }
                     //return {color: "#FF00FF"}
