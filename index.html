@@ -252,6 +252,37 @@
             
         }).addTo(map);
         })
+
+        var nwsurl = "https://api.weather.gov/alerts/active?status=actual"
+
+        //Add NWS Alerts Layer to Map
+        const NWSresponse = fetch(nwsurl, {headers: {'accept': 'application/geo+json'}}).then(NWSresponse => NWSresponse.json()).then(responNWSresponsese => {
+            L.geoJson(NWSresponse, {
+                /*style: function(feature) {
+                    if(feature.properties.attr_PercentContained < 50)
+                    {   
+                        return {color: "#FF0000"}
+                    }
+                    else
+                    {
+                        return {color: "#00FF00"}
+                    }
+                },*/
+                //onEachFeature: onEachFeatureFire,
+                filter: function(feature, layer) {
+                    if(feature.geometry != null)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            
+        ).addTo(map);
+        })
             
         var overlays = [];    
 
