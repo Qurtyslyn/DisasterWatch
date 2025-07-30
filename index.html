@@ -253,6 +253,19 @@
         }).addTo(map);
         })
 
+        function onEachFeatureNWS(feature, layer)
+        {
+            var starts = new Date(feature.properties.effective);
+            var expires = new Date(feature.properties.expires);
+            var popupText = "Incident Name: " + feature.properties.event + "<br>";
+            popupText += "Starts: " + starts.toLocaleString()  + "<br>";
+            popupText += "Expires: " + expires.toLocaleString()  + "<br>";
+            popupText += "Issuer: " + feature.properties.senderName + "<br>";
+            popupText += "Description: " + feature.properties.description + "<br><br>";
+            popupText += "Instructions: " + feature.properties.instruction;
+            layer.bindPopup(popupText);
+        }
+
         var nwsurl = "https://api.weather.gov/alerts/active?status=actual";
 
         //Add NWS Alerts Layer to Map
@@ -261,7 +274,7 @@
                 style: function(feature) {
                     return {color: "#FF00FF"}
                 },
-                //onEachFeature: onEachFeatureFire,
+                onEachFeature: onEachFeatureNWS,
                 filter: function(feature, layer) {
                     if(feature.geometry == null)
                     {
