@@ -272,6 +272,11 @@
         const NWSresponse = fetch(nwsurl, {headers: {"accept": "application/geo+json"}}).then(NWSresponse => NWSresponse.json()).then(NWSresponse => {
             L.geoJson(NWSresponse, {
                 style: function(feature) {
+                    switch(feature.properties.event) {
+                        case "Flood Advisory" : return {color: "#0000FF",fillColor: "#27F5EE"}; break;
+                        case "Flood Watch" : return {color: "#0000FF",fillColor: "#27A3F5"}; break;
+                        case "Flood Warning" : return {color: "#0000FF",fillColor: "#0000FF"}; break;
+                    }
                     return {color: "#FF00FF"}
                 },
                 onEachFeature: onEachFeatureNWS,
