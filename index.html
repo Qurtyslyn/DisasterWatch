@@ -275,9 +275,13 @@
                     switch(feature.properties.event) {
                         case "Flood Advisory" : return {color: "#0000FF",fillColor: "#27F5EE"}; break;
                         case "Flood Watch" : return {color: "#0000FF",fillColor: "#27A3F5"}; break;
-                        case "Flood Warning" : return {color: "#0000FF",fillColor: "#0000FF"}; break;
+                        case "Flood Warning" : return {color: "#0000FF",fillColor: "#0000FF", fillOpacity: 0.8}; break;
+                        case "Marine Weather Statement" : return {color: "#F57627",fillColor: "#F5E427"}; break;
+                        case "Severe Thunderstorm Warning" : return {color: "#F57627",fillColor: "#F5A327"}; break;
+                        case "Special Weather Statement" : return {color: "#FF00FF",fillColor: "#FF00FF"}; break;
+
                     }
-                    return {color: "#FF00FF"}
+                    //return {color: "#FF00FF"}
                 },
                 onEachFeature: onEachFeatureNWS,
                 filter: function(feature, layer) {
