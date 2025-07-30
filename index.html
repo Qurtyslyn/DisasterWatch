@@ -269,16 +269,16 @@
                     }
                 },*/
                 //onEachFeature: onEachFeatureFire,
-                /*filter: function(feature, layer) {
-                    if(feature.geometry != null)
-                    {
-                        return true;
-                    }
-                    else
+                filter: function(feature, layer) {
+                    if(feature.geometry == null)
                     {
                         return false;
                     }
-                }*/
+                    else
+                    {
+                        return true;
+                    }
+                }
             }
             
         ).addTo(map);
