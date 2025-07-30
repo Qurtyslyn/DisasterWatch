@@ -251,7 +251,7 @@
 
                     };
 
-                    return L.circleMarker(latlng, options);
+                    return L.circleMarker(latlng, options).bindTooltip("E", {permanent: true, direction: "center"}).openToolTip();
                 },
                 onEachFeature: onEachFeatureEQ
             
