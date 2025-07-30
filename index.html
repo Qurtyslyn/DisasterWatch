@@ -213,7 +213,7 @@
         {
             var starts = new Date(feature.properties.effective);
             var expires = new Date(feature.properties.expires);
-            var popupText = "Incident Name: " + feature.properties.event + "<br>";
+            var popupText = "Alert: " + feature.properties.event + "<br>";
             popupText += "Starts: " + starts.toLocaleString()  + "<br>";
             popupText += "Expires: " + expires.toLocaleString()  + "<br>";
             popupText += "Issuer: " + feature.properties.senderName + "<br>";
