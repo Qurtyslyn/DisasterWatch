@@ -108,9 +108,7 @@
         //Add Overlay Options to Selection Tree
         var overlayTree = {label: 'Placeholder', children: []};
 
-
-        //Add Layer to Map
-        L.control.layers.tree(baseTree,overlayTree,{selectorBack: true}).addTo(map);
+        var group = new L.LayerGroup();
 
         //On Each Feature function for fire map
         function onEachFeatureFire(feature, layer)
@@ -146,8 +144,10 @@
                 onEachFeature: onEachFeatureFire
             }
             
-        ).addTo(map);
+        ).addTo(group);
         })
+
+        overlayTree.children.push({label: "US Wildfires", layer: group});
 
 
         const responseCA = fetch(CAUrl).then(responseCA => responseCA.json()).then(responseCA => {
@@ -259,6 +259,9 @@
             
         ).addTo(map);
         })
+
+        //Add Layer to Map
+        L.control.layers.tree(baseTree,overlayTree,{selectorBack: true}).addTo(map);
             
         var overlays = [];    
 
