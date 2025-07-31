@@ -147,7 +147,7 @@
         ).addTo(group);
         })
 
-        overlayTree.children.push({label: "US Wildfires", layer: group});
+        overlayTree.children.push({label: "US Wildfires", layer: group, selectAll: true});
 
 
         const responseCA = fetch(CAUrl).then(responseCA => responseCA.json()).then(responseCA => {
