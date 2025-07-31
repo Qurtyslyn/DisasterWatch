@@ -106,7 +106,7 @@
         };
 
         //Add Overlay Options to Selection Tree
-        var overlayTree = {label: 'Placeholder', children: []};
+        var overlayTree = {label: 'Incidents', children: []};
 
         var group = new L.LayerGroup();
 
@@ -147,10 +147,11 @@
         ).addTo(group);
         })
 
-        overlayTree.children.push({label: "US Wildfires", layer: group, selectAll: true});
+        overlayTree.children.push({label: "US Wildfires", layer: group});
+        group.addTo(map);
 
 
-        const responseCA = fetch(CAUrl).then(responseCA => responseCA.json()).then(responseCA => {
+        /*const responseCA = fetch(CAUrl).then(responseCA => responseCA.json()).then(responseCA => {
             L.geoJson(responseCA, {
                 style: function(feature) {
                     
@@ -161,7 +162,7 @@
             }
             
         ).addTo(map);
-        })
+        })*/
 
         function onEachFeatureEQ(feature, layer)
         {
@@ -174,7 +175,8 @@
             layer.bindPopup(popupText);
         }
 
-        
+        var EQgroup = new L.LayerGroup();
+
         //Add Earthquake Layer to Map
         const eqresponse = fetch(earthquakeURL).then(eqresponse => eqresponse.json()).then(eqresponse => {
             L.geoJson(eqresponse, {
@@ -206,8 +208,11 @@
                 },
                 onEachFeature: onEachFeatureEQ
             
-        }).addTo(map);
+        }).addTo(EQgroup);
         })
+
+        overlayTree.children.push({label: "Earthquakes", layer: EQgroup});
+        EQgroup.addTo(map);
 
         function onEachFeatureNWS(feature, layer)
         {
@@ -222,7 +227,7 @@
             layer.bindPopup(popupText);
         }
 
-        
+        var NWSgroup = new L.LayerGroup();
 
         //Add NWS Alerts Layer to Map
         const NWSresponse = fetch(nwsURL, {headers: {"accept": "application/geo+json"}}).then(NWSresponse => NWSresponse.json()).then(NWSresponse => {
@@ -257,8 +262,11 @@
                 }
             }
             
-        ).addTo(map);
+        ).addTo(NWSgroup);
         })
+
+        overlayTree.children.push({label: "NWS Alerts", layer: NWSgroup});
+        NWSgroup.addTo(map);
 
         //Add Layer to Map
         L.control.layers.tree(baseTree,overlayTree,{selectorBack: true}).addTo(map);
