@@ -32,3 +32,25 @@ function getLegendItems()
 
     return itemList;
 }
+
+function addToLegend(event)
+{
+    //'<span id="Fire"><span class="symbol fire"></span><span>Wildfire</span></span><br>';
+    var legend = document.getElementsByClassName("legend")[0];
+
+    var colors = getPolygonColors(event);
+
+    var r = parseInt(colors.fillColor.substring(1,3));
+    var g = parseInt(colors.fillColor.substring(3,5));
+    var b = parseInt(colors.fillColor.substring(5,7));
+
+    var background = r.toString() + "," + g.toString() + "," + b.toString();
+
+    r = parseInt(colors.color.substring(1,3));
+    g = parseInt(colors.color.substring(3,5));
+    b = parseInt(colors.color.substring(5,7));
+
+    var border = r.toString() + "," + g.toString() + "," + b.toString();
+
+    legend.innerHTML += '<span id="' + event.replaceAll(" ","") +'"><span class="symbol square" style="background: rgba(' + background + ',0.5); border-color: rgba(' + border +',1.0)"></span><span>' + event + '</span></span><br>';
+}

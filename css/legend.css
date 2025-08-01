@@ -45,6 +45,11 @@
   border-radius: 9px;
 }
 
+.legend .square {
+  border-style: solid;
+  box-sizing: border-box;
+}
+
 .legend .earthquake {
   background: rgb(245, 83, 1, 0.5);
 }
@@ -89,6 +94,5 @@
   border-style: solid;
   border-color: rgba(245, 118, 39,1);
   box-sizing: border-box;
-  color: rgb(245, 228, 39)
 }
 
