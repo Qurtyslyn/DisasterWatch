@@ -1,0 +1,18 @@
+function getPolygonColors (eventName)
+{
+    switch(eventName) {
+    case "Flood Advisory" : return {color: "#0000FF",fillColor: "#27F5EE"}; break;
+    case "Flood Watch" : return {color: "#0000FF",fillColor: "#27A3F5"}; break;
+    case "Flood Warning" : return {color: "#0000FF",fillColor: "#0000FF", fillOpacity: 0.65}; break;
+    case "Flash Flood Advisory" : return {color: "#0000FF",fillColor: "#FFC4FA"}; break;
+    case "Flash Flood Watch" : return {color: "#0000FF",fillColor: "#FF91F5"}; break;
+    case "Flash Flood Warning" : return {color: "#0000FF",fillColor: "#FF2EEE", fillOpacity: 0.65}; break;
+    case "Special Marine Warning" : return {color: "#F57627",fillColor: "#F5E427"}; break;
+    case "Severe Thunderstorm Warning" : return {color: "#F57627",fillColor: "#F5A327"}; break;
+    case "Special Weather Statement" : return {color: "#FF00FF",fillColor: "#FF00FF"}; break;
+    case "Marine Weather Statement" : return {color: "#FF00FF",fillColor: "#F5E427"}; break;
+    case "Dust Advisory" : return {color: "#6E5937",fillColor: "#6E5937"}; break;
+    default: return {color: "#000000",fillColor: "#000000"};
+
+    }
+}

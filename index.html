@@ -25,6 +25,9 @@
     <script src="L.Control.Layers.Tree.js"></script>
     <link rel="stylesheet" href="L.Control.Layers.Tree.css" />
 
+    <!--Load Helper Functions file-->
+    <script src="helperFunctions.js"></script>
+
     <!--Stylesheet for map Legend-->
     <link rel="stylesheet" href="css/legend.css" />
 
@@ -237,11 +240,11 @@
         const NWSresponse = fetch(nwsURL, {headers: {"accept": "application/geo+json"}}).then(NWSresponse => NWSresponse.json()).then(NWSresponse => {
             L.geoJson(NWSresponse, {
                 style: function(feature) {
-                    switch(feature.properties.event) {
+                    /*switch(feature.properties.event) {
                         case "Flood Advisory" : return {color: "#0000FF",fillColor: "#27F5EE"}; break;
                         case "Flood Watch" : return {color: "#0000FF",fillColor: "#27A3F5"}; break;
                         case "Flood Warning" : return {color: "#0000FF",fillColor: "#0000FF", fillOpacity: 0.65}; break;
-                        case "FLash Flood Advisory" : return {color: "#0000FF",fillColor: "#FFC4FA"}; break;
+                        case "Flash Flood Advisory" : return {color: "#0000FF",fillColor: "#FFC4FA"}; break;
                         case "Flash Flood Watch" : return {color: "#0000FF",fillColor: "#FF91F5"}; break;
                         case "Flash Flood Warning" : return {color: "#0000FF",fillColor: "#FF2EEE", fillOpacity: 0.65}; break;
                         case "Special Marine Warning" : return {color: "#F57627",fillColor: "#F5E427"}; break;
@@ -250,8 +253,10 @@
                         case "Marine Weather Statement" : return {color: "#FF00FF",fillColor: "#F5E427"}; break;
                         case "Dust Advisory" : return {color: "#6E5937",fillColor: "#6E5937"}; break;
 
-                    }
+                    }*/
                     //return {color: "#FF00FF"}
+
+                    return getPolygonColors(feature.properties.event);
                 },
                 onEachFeature: onEachFeatureNWS,
                 filter: function(feature, layer) {
@@ -282,7 +287,7 @@
         legend.onAdd = function(map) {
             var div = L.DomUtil.create("div", "legend");
             div.innerHTML += "<h4>Legend</h4>";
-            div.innerHTML += '<span class="symbol round" style="background: #F55301"></span><span>Earthquake</span><br>';
+            div.innerHTML += '<span id="legendEarthquake<span class="symbol round" style="background: #F55301"></span><span>Earthquake</span></span><br>';
             //div.innerHTML += '<i style="background: #448D40"></i><span>Forest</span><br>';
             //div.innerHTML += '<i style="background: #E6E696"></i><span>Land</span><br>';
             //div.innerHTML += '<i style="background: #E8E6E0"></i><span>Residential</span><br>';
