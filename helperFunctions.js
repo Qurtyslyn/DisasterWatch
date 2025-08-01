@@ -8,7 +8,7 @@ function getPolygonColors (eventName)
     case "Flash Flood Watch" : return {color: "#0000FF",fillColor: "#FF91F5"}; break;
     case "Flash Flood Warning" : return {color: "#0000FF",fillColor: "#FF2EEE", fillOpacity: 0.65}; break;
     case "Special Marine Warning" : return {color: "#F57627",fillColor: "#F5E427"}; break;
-    case "Severe Thunderstorm Warning" : return {color: "#030303ff",fillColor: "#F57627"}; break;
+    case "Severe Thunderstorm Warning" : return {color: "#F57627",fillColor: "#F57627"}; break;
     case "Special Weather Statement" : return {color: "#FF00FF",fillColor: "#FF00FF"}; break;
     case "Marine Weather Statement" : return {color: "#FF00FF",fillColor: "#F5E427"}; break;
     case "Dust Advisory" : return {color: "#6E5937",fillColor: "#6E5937"}; break;
