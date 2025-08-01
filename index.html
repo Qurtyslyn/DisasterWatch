@@ -252,6 +252,11 @@
             popupText += "Description: " + feature.properties.description + "<br><br>";
             popupText += "Instructions: " + feature.properties.instruction;
             layer.bindPopup(popupText);
+
+            if(!(getLegendItems().includes(event.replaceAll(" ",""))))
+            {
+                console.log(feature.properties.event);
+            }
         }
 
         var NWSgroup = new L.LayerGroup();
