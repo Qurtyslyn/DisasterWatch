@@ -253,7 +253,7 @@
             popupText += "Instructions: " + feature.properties.instruction;
             layer.bindPopup(popupText);
 
-            if(!(getLegendItems().includes(event.replaceAll(" ",""))))
+            if(!(getLegendItems().includes(feature.properties.event.replaceAll(" ",""))))
             {
                 console.log(feature.properties.event);
             }
