@@ -40,15 +40,15 @@ function addToLegend(event)
 
     var colors = getPolygonColors(event);
 
-    var r = parseInt(colors.fillColor.substring(1,3));
-    var g = parseInt(colors.fillColor.substring(3,5));
-    var b = parseInt(colors.fillColor.substring(5,7));
+    var r = parseInt(colors.fillColor.substring(1,3), 16);
+    var g = parseInt(colors.fillColor.substring(3,5), 16);
+    var b = parseInt(colors.fillColor.substring(5,7), 16);
 
     var background = r.toString() + "," + g.toString() + "," + b.toString();
 
-    r = parseInt(colors.color.substring(1,3));
-    g = parseInt(colors.color.substring(3,5));
-    b = parseInt(colors.color.substring(5,7));
+    r = parseInt(colors.color.substring(1,3), 16);
+    g = parseInt(colors.color.substring(3,5), 16);
+    b = parseInt(colors.color.substring(5,7)), 16;
 
     var border = r.toString() + "," + g.toString() + "," + b.toString();
 
