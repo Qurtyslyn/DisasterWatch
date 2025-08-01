@@ -12,6 +12,7 @@ function getPolygonColors (eventName)
     case "Special Weather Statement" : return {color: "#FF00FF",fillColor: "#FF00FF"}; break;
     case "Marine Weather Statement" : return {color: "#FF00FF",fillColor: "#F5E427"}; break;
     case "Dust Advisory" : return {color: "#6E5937",fillColor: "#6E5937"}; break;
+    case "Local Area Emergency" : return {color: "#FF0000",fillColor: "#0000FF", fillOpacity: 0.65}; break;
     default: return {color: "#000000",fillColor: "#000000"};
 
     }
