@@ -19,5 +19,16 @@ function getPolygonColors (eventName)
 
 function getLegendItems()
 {
-    var legend = document.getElementsByClassName("legend");
+    var legend = document.getElementsByClassName("legend")[0];
+    var itemList = [];
+
+    for(let item in legend.childNodes)
+    {
+        if(legend.childNodes[item].nodeName == "SPAN")
+            {
+                itemList.push(legend.childNodes[item].id);
+            }
+    }
+
+    return itemList;
 }
