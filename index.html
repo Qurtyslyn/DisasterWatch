@@ -112,6 +112,25 @@
             ]
         };
 
+                //Create Legend
+        var legend = L.control({ position: "bottomleft" });
+
+        legend.onAdd = function(map) {
+            var div = L.DomUtil.create("div", "legend");
+            div.innerHTML += "<h4>Legend</h4>";
+            div.innerHTML += '<span id="Earthquakre"><span class="symbol round earthquake"></span><span>Earthquake</span></span><br>';
+            div.innerHTML += '<span id="Fire"><span class="symbol fire"></span><span>Wildfire</span></span><br>';
+            //div.innerHTML += '<i style="background: #448D40"></i><span>Forest</span><br>';
+            //div.innerHTML += '<i style="background: #E6E696"></i><span>Land</span><br>';
+            //div.innerHTML += '<i style="background: #E8E6E0"></i><span>Residential</span><br>';
+            //div.innerHTML += '<i style="background: #FFFFFF"></i><span>Ice</span><br>';
+            //div.innerHTML += '<i class="icon" style="background-image: url(https://d30y9cdsu7xlg0.cloudfront.net/png/194515-200.png);background-repeat: no-repeat;"></i><span>Grænse</span><br>';
+
+            return div;
+        };
+
+        legend.addTo(map);
+
         //Add Overlay Options to Selection Tree
         var overlayTree = {label: 'Incidents', children: []};
 
@@ -279,27 +298,6 @@
 
         //Add Layer to Map
         L.control.layers.tree(baseTree,overlayTree,{selectorBack: true}).addTo(map);
-
-        //Create Legend
-
-        var legend = L.control({ position: "bottomleft" });
-
-        legend.onAdd = function(map) {
-            var div = L.DomUtil.create("div", "legend");
-            div.innerHTML += '<div id="legendDiv">';
-            div.innerHTML += "<h4>Legend</h4>";
-            div.innerHTML += '<span id="legendEarthquake"><span class="symbol round" style="background: #F55301"></span><span>Earthquake</span></span><br>';
-            //div.innerHTML += '<i style="background: #448D40"></i><span>Forest</span><br>';
-            //div.innerHTML += '<i style="background: #E6E696"></i><span>Land</span><br>';
-            //div.innerHTML += '<i style="background: #E8E6E0"></i><span>Residential</span><br>';
-            //div.innerHTML += '<i style="background: #FFFFFF"></i><span>Ice</span><br>';
-            //div.innerHTML += '<i class="icon" style="background-image: url(https://d30y9cdsu7xlg0.cloudfront.net/png/194515-200.png);background-repeat: no-repeat;"></i><span>Grænse</span><br>';
-            div.innerHTML += '</div">';
-
-            return div;
-        };
-
-        legend.addTo(map);
             
         var overlays = [];    
 

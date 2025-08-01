@@ -45,3 +45,11 @@
 .legend .round {
   border-radius: 9px;
 }
+
+.legend .earthquake {
+  background: #F55301;
+}
+
+.legend .fire {
+  background: #FF0000;
+}

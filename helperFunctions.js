@@ -16,3 +16,8 @@ function getPolygonColors (eventName)
 
     }
 }
+
+function getLegendItems()
+{
+    var legend = document.getElementsByClassName("legend");
+}
