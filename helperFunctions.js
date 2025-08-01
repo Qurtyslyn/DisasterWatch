@@ -48,7 +48,7 @@ function addToLegend(event)
 
     r = parseInt(colors.color.substring(1,3), 16);
     g = parseInt(colors.color.substring(3,5), 16);
-    b = parseInt(colors.color.substring(5,7)), 16;
+    b = parseInt(colors.color.substring(5,7), 16);
 
     var border = r.toString() + "," + g.toString() + "," + b.toString();
 
