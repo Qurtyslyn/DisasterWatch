@@ -54,4 +54,5 @@
   background: #FF0000;
   border-style: solid;
   border-color: rgba(255,0,0,1);
+  box-sizing: border-box;
 }
