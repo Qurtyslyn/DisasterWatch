@@ -34,7 +34,6 @@
   height: 18px;
   float: left;
   margin: 0 8px 0 0;
-  opacity: 0.5;
 }
 
 .legend i.icon {
@@ -47,11 +46,11 @@
 }
 
 .legend .earthquake {
-  background: #F55301;
+  background: rgb(245, 83, 1, 0.5);
 }
 
 .legend .fire {
-  background: #FF0000;
+  background: rgba(255,0,0,0.5);
   border-style: solid;
   border-color: rgba(255,0,0,1);
   box-sizing: border-box;
