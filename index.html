@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-    <!--<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    -->
     <link rel="stylesheet" href="css/styledLayerControl.css" />
 	<script src="src/styledLayerControl.js"></script>
     
@@ -112,7 +109,7 @@
             ]
         };
 
-                //Create Legend
+        //Create Legend
         var legend = L.control({ position: "bottomleft" });
 
         legend.onAdd = function(map) {
@@ -120,11 +117,6 @@
             div.innerHTML += "<h4>Legend</h4>";
             div.innerHTML += '<span id="Earthquake"><span class="symbol round earthquake"></span><span>Earthquake</span></span><br>';
             div.innerHTML += '<span id="Fire"><span class="symbol fire"></span><span>Wildfire</span></span><br>';
-            //div.innerHTML += '<span id="SWS"><span class="symbol sws"></span><span>Special Weather Statement</span></span><br>';
-            //div.innerHTML += '<span id="Thunderstorm"><span class="symbol thunderstorm"></span><span>Severe Thunderstorm</span></span><br>';
-            //div.innerHTML += '<span id="Marine"><span class="symbol marine"></span><span>Special Marine</span></span><br>';
-            //div.innerHTML += '<span id="Flood"><span class="symbol flood"></span><span>Flood</span></span><br>';
-            //div.innerHTML += '<span id="FlashFlood"><span class="symbol flashflood"></span><span>Flash Flood</span></span><br>';
             //div.innerHTML += '<i class="icon" style="background-image: url(https://d30y9cdsu7xlg0.cloudfront.net/png/194515-200.png);background-repeat: no-repeat;"></i><span>Grænse</span><br>';
 
             return div;
@@ -137,24 +129,11 @@
 
         var group = new L.LayerGroup();
 
-        //On Each Feature function for fire map
-        function onEachFeatureFire(feature, layer)
-        {
-            var date = new Date(feature.properties.attr_FireDiscoveryDateTime);
-            var updated = new Date(feature.properties.poly_DateCurrent);
-            var popupText = "Incident Name: " + feature.properties.poly_IncidentName + "<br>";
-            popupText += "Discovery Date: " + date.toLocaleString()  + "<br>";
-            popupText += "Last Updated: " + updated.toLocaleString() + "<br>";
-            popupText += "Origin: " + feature.properties.attr_InitialLatitude + ", " + feature.properties.attr_InitialLongitude + "<br>";
-            popupText += "Estimated Size: " + (Math.round(feature.properties.poly_Acres_AutoCalc * 100) / 100) + "<br>";
-            popupText += "Containment: " + feature.properties.attr_PercentContained + "%";
-            layer.bindPopup(popupText);
-        }
- 
         //Add Fire Layer to Map
         const response = fetch(fireURL).then(response => response.json()).then(response => {
             L.geoJson(response, {
                 style: function(feature) {
+                    //Set Opacity of the fill based on the Containment percentage of the fire
                     var opacity = 1 -(feature.properties.attr_PercentContained / 100)
 
                     if(opacity < 0.3)
@@ -190,17 +169,6 @@
             
         ).addTo(map);
         })*/
-
-        function onEachFeatureEQ(feature, layer)
-        {
-            var date = new Date(feature.properties.time);
-            var popupText = "Incident Name: " + feature.properties.title + "<br>";
-            popupText += "Date: " + date.toLocaleString()  + "<br>";
-            popupText += "Origin: " + feature.geometry.coordinates[1] + ", " + feature.geometry.coordinates[0] + "<br>";
-            popupText += "Depth: " + feature.geometry.coordinates[2] + "km<br>";
-            popupText += "Size: M" + feature.properties.mag;
-            layer.bindPopup(popupText);
-        }
 
         var EQgroup = new L.LayerGroup();
 
@@ -241,50 +209,16 @@
         overlayTree.children.push({label: "Earthquakes", layer: EQgroup});
         EQgroup.addTo(map);
 
-        function onEachFeatureNWS(feature, layer)
-        {
-            var starts = new Date(feature.properties.effective);
-            var expires = new Date(feature.properties.expires);
-            var popupText = "Alert: " + feature.properties.event + "<br>";
-            popupText += "Starts: " + starts.toLocaleString()  + "<br>";
-            popupText += "Expires: " + expires.toLocaleString()  + "<br>";
-            popupText += "Issuer: " + feature.properties.senderName + "<br>";
-            popupText += "Description: " + feature.properties.description + "<br><br>";
-            popupText += "Instructions: " + feature.properties.instruction;
-            layer.bindPopup(popupText);
-
-            if(!(getLegendItems().includes(feature.properties.event.replaceAll(" ",""))))
-            {
-                //console.log(feature.properties.event);
-                addToLegend(feature.properties.event);
-            }
-        }
-
         var NWSgroup = new L.LayerGroup();
 
         //Add NWS Alerts Layer to Map
         const NWSresponse = fetch(nwsURL, {headers: {"accept": "application/geo+json"}}).then(NWSresponse => NWSresponse.json()).then(NWSresponse => {
             L.geoJson(NWSresponse, {
                 style: function(feature) {
-                    /*switch(feature.properties.event) {
-                        case "Flood Advisory" : return {color: "#0000FF",fillColor: "#27F5EE"}; break;
-                        case "Flood Watch" : return {color: "#0000FF",fillColor: "#27A3F5"}; break;
-                        case "Flood Warning" : return {color: "#0000FF",fillColor: "#0000FF", fillOpacity: 0.65}; break;
-                        case "Flash Flood Advisory" : return {color: "#0000FF",fillColor: "#FFC4FA"}; break;
-                        case "Flash Flood Watch" : return {color: "#0000FF",fillColor: "#FF91F5"}; break;
-                        case "Flash Flood Warning" : return {color: "#0000FF",fillColor: "#FF2EEE", fillOpacity: 0.65}; break;
-                        case "Special Marine Warning" : return {color: "#F57627",fillColor: "#F5E427"}; break;
-                        case "Severe Thunderstorm Warning" : return {color: "#F57627",fillColor: "#F5A327"}; break;
-                        case "Special Weather Statement" : return {color: "#FF00FF",fillColor: "#FF00FF"}; break;
-                        case "Marine Weather Statement" : return {color: "#FF00FF",fillColor: "#F5E427"}; break;
-                        case "Dust Advisory" : return {color: "#6E5937",fillColor: "#6E5937"}; break;
-
-                    }*/
-                    //return {color: "#FF00FF"}
-
                     return getPolygonColors(feature.properties.event);
                 },
                 onEachFeature: onEachFeatureNWS,
+                //Filter out alerts that use Zones rather than Polygons for areas
                 filter: function(feature, layer) {
                     if(feature.geometry == null)
                     {
@@ -306,12 +240,12 @@
         //Add Layer to Map
         L.control.layers.tree(baseTree,overlayTree,{selectorBack: true}).addTo(map);
             
-        var overlays = [];    
+        /*var overlays = [];    
 
         var options = {
             collapsed : false,
             group_maxHeight: "500px"
-        }
+        }*/
 
         //Resize the Map to fit the current window size
         function resizeMapWithWindowChange()
