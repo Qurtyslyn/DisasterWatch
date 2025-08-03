@@ -47,6 +47,7 @@
         var CAUrl = "https://cwfis.cfs.nrcan.gc.ca/geoserver/public/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=public:m3_polygons_current&outputFormat=json";
         var earthquakeURL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson";
         var nwsURL = "https://api.weather.gov/alerts/active?status=actual";
+        var volcanoURL = "https://volcano.si.edu/news/WeeklyVolcanoRSS.xml";
 
         //Create Map Base Layers
 
@@ -236,6 +237,14 @@
 
         overlayTree.children.push({label: "NWS Alerts", layer: NWSgroup});
         NWSgroup.addTo(map);
+
+
+        //Add Volcanos to map
+        const volcanoResponse = fetch(volcanoURL).then((response) => response.text()).then((text) => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(text, "text/xml");
+                    console.log(doc.documentElement.nodeName);
+                });
 
         //Add Layer to Map
         L.control.layers.tree(baseTree,overlayTree,{selectorBack: true}).addTo(map);
