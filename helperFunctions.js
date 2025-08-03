@@ -14,6 +14,8 @@ function getPolygonColors (eventName)
     case "Marine Weather Statement" : return {color: "#FF00FF",fillColor: "#F5E427"}; break;
     case "Dust Advisory" : return {color: "#6E5937",fillColor: "#6E5937"}; break;
     case "Local Area Emergency" : return {color: "#FF0000",fillColor: "#0000FF", fillOpacity: 0.65}; break;
+    case "Tornado Warning" : return {color: "#FF0000",fillColor: "#ffff00", fillOpacity: 0.65}; break;
+    case "Tornado Watcb" : return {color: "#ffff00",fillColor: "#ffff00"}; break;
     default: return {color: "#000000",fillColor: "#000000"};
 
     }
