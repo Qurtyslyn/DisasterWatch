@@ -250,6 +250,9 @@
                     console.log(doc.documentElement.nodeName);
                 });*/
 
+        //Add Hurricanes to Map
+        omnivore.kml("nhc_active.kml").addTo(map);
+
         //Add Layer to Map
         L.control.layers.tree(baseTree,overlayTree,{selectorBack: true}).addTo(map);
 
