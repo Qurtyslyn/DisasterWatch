@@ -251,7 +251,17 @@
                 });*/
 
         //Add Hurricanes to Map
-        omnivore.kml("nhc_active.kml").addTo(map);
+        omnivore.kml("nhc_active.kml")
+            .on('ready', function() {
+            // when this is fired, the layer
+            // is done being initialized
+                console.log("Hurricane Loaded");
+            })
+            .on('error', function() {
+                // fired if the layer can't be loaded over AJAX
+                // or can't be parsed
+                console.log("Hurricane Failed");
+            }).addTo(map);
 
         //Add Layer to Map
         L.control.layers.tree(baseTree,overlayTree,{selectorBack: true}).addTo(map);
