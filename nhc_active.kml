@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <NetworkLinkControl>
+    <minRefreshPeriod>120</minRefreshPeriod>
+    <expires>2025-08-13T21:41:21.037Z</expires>
+  </NetworkLinkControl>
+  <Document id="active">
+    <name>Active Tropical Cyclones</name>
+    <description>
+      <![CDATA[<TABLE>
+      <TR><TD><B>Last Update:</B> 2025-08-13T19:41:21.037Z</TD></TR>
+      <TR><TD><B>Created By:</B> NOAA/NWS National Hurricane Center</TD></TR>
+      <TR><TD><B>Disclaimer:</B> The NHC Active KML format is an experimental product.</TD></TR>
+      <TR><TD><B>For More Information: </B><a href="https://www.nhc.noaa.gov">https://www.nhc.noaa.gov</a></TD></TR></TABLE>]]>
+    </description>
+    <ScreenOverlay id="activeLegend">
+      <name>Legend</name>
+      <drawOrder>100</drawOrder>
+      <Icon>
+        <href>https://www.nhc.noaa.gov/images/interactive_cone_legend.jpg</href>
+      </Icon>
+      <overlayXY x="0" y="0" xunits="fraction" yunits="fraction" />
+      <screenXY x="0" y="0" xunits="fraction" yunits="fraction" />
+      <rotationXY x="0.5" y="0.5" xunits="fraction" yunits="fraction" />
+      <size x="-1" y="-1" xunits="pixels" yunits="pixels" />
+      <visibility>0</visibility>
+    </ScreenOverlay>
+    <Folder id="wsp">
+      <name>Wind Speed Probabilities (120 hours)</name>
+      <visibility>1</visibility>
+      <open>1</open>
+      <Folder id="wspValues">
+        <name>Values</name>
+        <visibility>1</visibility>
+        <open>1</open>
+        <Style>
+          <ListStyle>
+            <listItemType>radioFolder</listItemType>
+          </ListStyle>
+        </Style>
+        <NetworkLink id="wsp34">
+          <name>Probability of Tropical-Storm-force winds (34-kt)</name>
+          <visibility>1</visibility>
+          <open>0</open>
+          <Link>
+            <href>https://www.nhc.noaa.gov/gis/forecast/archive/2025081312_wsp34knt120hr_5km.kmz</href>
+          </Link>
+        </NetworkLink>
+        <NetworkLink id="wsp50">
+          <name>Probability of 50 knot winds</name>
+          <visibility>0</visibility>
+          <open>0</open>
+          <Link>
+            <href>https://www.nhc.noaa.gov/gis/forecast/archive/2025081312_wsp50knt120hr_5km.kmz</href>
+          </Link>
+        </NetworkLink>
+        <NetworkLink id="wsp64">
+          <name>Probability of Hurricane-force winds (64-kt)</name>
+          <visibility>0</visibility>
+          <open>0</open>
+          <Link>
+            <href>https://www.nhc.noaa.gov/gis/forecast/archive/2025081312_wsp64knt120hr_5km.kmz</href>
+          </Link>
+        </NetworkLink>
+      </Folder>
+    </Folder>
+  <Folder id="at5">
+      <name>Tropical Storm Erin</name>
+      <visibility>1</visibility>
+      <open>1</open>
+      <ExtendedData>
+        <Data name="tcType">
+          <value>TS</value>
+        </Data>
+        <Data name="tcName">
+          <value>Erin</value>
+        </Data>
+        <Data name="wallet">
+          <value>at5</value>
+        </Data>
+        <Data name="atcfID">
+          <value>AL052025</value>
+        </Data>
+        <Data name="centerLat">
+          <value>16.3</value>
+        </Data>
+        <Data name="centerLon">
+          <value>-43.4</value>
+        </Data>
+        <Data name="dateTime">
+          <value>11:00 AM AST Wed Aug 13</value>
+        </Data>
+        <Data name="movement">
+          <value>W at 17 mph</value>
+        </Data>
+        <Data name="minimumPressure">
+          <value>1004 mb</value>
+        </Data>
+        <Data name="maxSustainedWind">
+          <value>45 mph</value>
+        </Data>
+        <Data name="headline">')
+          <value></value>
+        </Data>
+      </ExtendedData>
+    
+      <ExtendedData xmlns:tc="https://www.nhc.noaa.gov/cyclones">
+        <tc:type>TS</tc:type>
+        <tc:name>Erin</tc:name>
+        <tc:wallet>at5</tc:wallet>
+        <tc:atcfID>AL052025</tc:atcfID>
+        <tc:centerLat>16.3</tc:centerLat>
+        <tc:centerLon>-43.4</tc:centerLon>
+        <tc:dateTime>11:00 AM AST Wed Aug 13</tc:dateTime>
+        <tc:movement>W at 17 mph</tc:movement>
+        <tc:minimumPressure>1004 mb</tc:minimumPressure>
+        <tc:maxSustainedWind>45 mph</tc:maxSustainedWind>
+        <tc:headline></tc:headline>
+      </ExtendedData>
+      <NetworkLink id="pasttrack">
+        <name>Past Track</name>
+        <visibility>1</visibility>
+        <open>0</open>
+        <Link>
+          <href>https://www.nhc.noaa.gov/gis/best_track/al052025_best_track.kmz</href>
+        </Link>
+      </NetworkLink>
+      <NetworkLink id="cone">
+        <name>Cone of Uncertainty</name>
+        <visibility>1</visibility>
+        <open>0</open>
+        <Link>
+          <href>https://www.nhc.noaa.gov/storm_graphics/api/AL052025_009adv_CONE.kmz</href>
+        </Link>
+      </NetworkLink>
+      <NetworkLink id="track">
+        <name>Track Forecast</name>
+        <visibility>1</visibility>
+        <open>0</open>
+        <Link>
+          <href>https://www.nhc.noaa.gov/storm_graphics/api/AL052025_009adv_TRACK.kmz</href>
+        </Link>
+      </NetworkLink>
+  <NetworkLink id="initialwindfield">
+        <name>Initial Extent of Winds</name>
+        <visibility>1</visibility>
+        <open>0</open>
+        <Link>
+          <href>https://www.nhc.noaa.gov/storm_graphics/api/AL052025_initialradii_009adv.kmz</href>
+        </Link>
+      </NetworkLink>
+  </Folder></Document>
+</kml>
