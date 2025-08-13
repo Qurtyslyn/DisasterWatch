@@ -14,6 +14,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/gpx.min.js"></script>
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/2.1.2/gpx.min.js" defer></script>-->
 
+    <!-- Leaflet Omnivore Plugin-->
+     <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
+
     <script src="leaflet.awesome-markers.js"></script>
     <link rel="stylesheet" href="leaflet.awesome-markers.css">
     <script src="https://kit.fontawesome.com/8064aa9388.js" crossorigin="anonymous"></script>
@@ -48,6 +51,7 @@
         var earthquakeURL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson";
         var nwsURL = "https://api.weather.gov/alerts/active?status=actual";
         //var volcanoURL = "https://volcano.si.edu/news/WeeklyVolcanoCAP.xml";
+        var hurricaneURL = 'https://www.nhc.noaa.gov/gis/kml/nhc_active.kml';
 
         //Create Map Base Layers
 
