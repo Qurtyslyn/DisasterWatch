@@ -251,6 +251,8 @@
                 });*/
 
         //Add Hurricanes to Map
+        var Hurricanegroup = new L.LayerGroup();
+
         omnivore.kml("nhc_active.kml")
             .on('ready', function() {
             // when this is fired, the layer
@@ -261,7 +263,10 @@
                 // fired if the layer can't be loaded over AJAX
                 // or can't be parsed
                 console.log("Hurricane Failed");
-            }).addTo(map);
+            }).addTo(Hurricanegroup);
+
+        overlayTree.children.push({label: "Hurricanes", layer: Hurricanegroup});
+        Hurricanegroup.addTo(map);
 
         //Add Layer to Map
         L.control.layers.tree(baseTree,overlayTree,{selectorBack: true}).addTo(map);
