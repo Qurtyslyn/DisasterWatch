@@ -275,7 +275,30 @@
         overlayTree.children.push({label: "Hurricanes", layer: Hurricanegroup});
         //Hurricanegroup.addTo(map);
 
-        L.geoJson('data/hurricanes/test.geojson').addTo(map);
+        //L.geoJson('data/hurricanes/test.geojson').addTo(map);
+
+                //Add NWS Alerts Layer to Map
+        const Gjresponse = fetch('data/hurricanes/test.geojson', {headers: {"accept": "application/geo+json"}}).then(Gjresponse => Gjresponse.json()).then(Gjresponse => {
+            L.geoJson(Gjresponse//, {
+            //     style: function(feature) {
+            //         return getPolygonColors(feature.properties.event);
+            //     },
+            //     onEachFeature: onEachFeatureNWS,
+            //     //Filter out alerts that use Zones rather than Polygons for areas
+            //     filter: function(feature, layer) {
+            //         if(feature.geometry == null)
+            //         {
+            //             return false;
+            //         }
+            //         else
+            //         {
+            //             return true;
+            //         }
+            //     }
+            // }
+            
+        ).addTo(map);
+        })
 
 
         //Add Layer to Map
