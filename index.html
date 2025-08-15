@@ -251,9 +251,12 @@
                 });*/
 
         //Add Hurricanes to Map
+        hurricaneFiles = ['HurricaneTest.kml','Cone.kml','PastTrack.kml','Track.kml']
         var Hurricanegroup = new L.LayerGroup();
 
-        omnivore.kml("HurricaneTest.kml")
+        for(item of hurricaneFiles)
+        {
+            omnivore.kml(item)
             .on('ready', function() {
             // when this is fired, the layer
             // is done being initialized
@@ -264,6 +267,7 @@
                 // or can't be parsed
                 console.log("Hurricane Failed");
             }).addTo(Hurricanegroup);
+        }
 
         overlayTree.children.push({label: "Hurricanes", layer: Hurricanegroup});
         Hurricanegroup.addTo(map);
