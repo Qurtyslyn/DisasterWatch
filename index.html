@@ -256,7 +256,7 @@
 
         for(item of hurricaneFiles)
         {
-            omnivore.kml(item)
+            omnivore.kml('data/hurricanes/' + item)
             .on('ready', function() {
             // when this is fired, the layer
             // is done being initialized
