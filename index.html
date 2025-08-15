@@ -275,9 +275,15 @@
         overlayTree.children.push({label: "Hurricanes", layer: Hurricanegroup});
         Hurricanegroup.addTo(map);
 
-        var geo = toGeoJSON.kml('HurricaneTest.kml');
+        //var geo = toGeoJSON.kml('HurricaneTest.kml');
+
+        var geoJ;
 
         console.log(geo);
+
+        const geo = fetch('HurricaneTest.kml').then(response => response.text()).then((data) =>{
+            geoJ = toGeoJSON.kml(data);
+        })
 
         //Add Layer to Map
         L.control.layers.tree(baseTree,overlayTree,{selectorBack: true}).addTo(map);
