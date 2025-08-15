@@ -58,12 +58,12 @@
         //Create Topo layer of the map
         var topo = L.tileLayer('https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png', {
             maxZoom: 20,
-            attribution: '<a href="https://github.com/cyclosm/cyclosm-cartocss-style/releases" title="CyclOSM - Open Bicycle render">CyclOSM</a> | Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            attribution: '<a href="https://github.com/cyclosm/cyclosm-cartocss-style/releases" title="CyclOSM - Open Bicycle render">CyclOSM</a> | Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | <a href="https://github.com/Qurtyslyn/DisasterWatch/wiki/Data-Sources">Alert Data</a>'
         });
 
         //Create the Streets layer of the Map
         var streets = L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | <a href="https://github.com/Qurtyslyn/DisasterWatch/wiki/Data-Sources">Alert Data</a>',
             maxZoom: 18,
             subdomains: ['a','b','c']
         });
@@ -71,7 +71,7 @@
         //Create Imagery Layer of the Map
         var imagery = L.tileLayer('https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryTopo/MapServer/tile/{z}/{y}/{x}', {
             maxZoom: 16,
-            attribution: 'Tiles courtesy of the <a href="https://usgs.gov/">U.S. Geological Survey</a>'
+            attribution: 'Tiles courtesy of the <a href="https://usgs.gov/">U.S. Geological Survey</a> | <a href="https://github.com/Qurtyslyn/DisasterWatch/wiki/Data-Sources">Alert Data</a>'
         });
 
         //Create the Map, Centered on US
