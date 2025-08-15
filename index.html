@@ -281,8 +281,8 @@
 
         //console.log(geo);
 
-        const geo = fetch('HurricaneTest.kml').then(response => response.text()).then((data) =>{
-            geoJ = toGeoJSON.kml(data);
+        const geo = fetch('HurricaneTest.kml').then(response => response.text()).then(response =>{
+            geoJ = toGeoJSON.kml(response);
             console.log(geoJ);
         })
 
