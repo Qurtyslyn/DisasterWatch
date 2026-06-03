@@ -80,12 +80,12 @@ function onEachFeatureFire(feature, layer)
 function onEachFeatureVC(feature, layer)
 {
     //var date = new Date(feature.properties.time);
-    var popupText = "Name: " + feature.properties.name + "<br>";
+    var popupText = "Name: " + feature.properties.Name + "<br>";
     //popupText += "Date: " + date.toLocaleString()  + "<br>";
     popupText += "Coordinates: " + feature.geometry.coordinates[1] + ", " + feature.geometry.coordinates[0] + "<br>";
-    popupText += "Certainty: " + feature.properties.certainty + "<br>";
-    popupText += "Severity" + feature.properties.severity + "<br>";
-    popupText += "Urgency" + feature.properties.urgency;
+    popupText += "Certainty: " + feature.properties.Certainty + "<br>";
+    popupText += "Severity" + feature.properties.Severity + "<br>";
+    popupText += "Urgency" + feature.properties.Urgency;
     layer.bindPopup(popupText);
 }
 
