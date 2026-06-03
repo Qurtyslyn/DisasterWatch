@@ -77,6 +77,19 @@ function onEachFeatureFire(feature, layer)
 }
 
 //On Each Feature function for Earthquake layer
+function onEachFeatureVC(feature, layer)
+{
+    //var date = new Date(feature.properties.time);
+    var popupText = "Name: " + feature.properties.name + "<br>";
+    //popupText += "Date: " + date.toLocaleString()  + "<br>";
+    popupText += "Coordinates: " + feature.geometry.coordinates[1] + ", " + feature.geometry.coordinates[0] + "<br>";
+    popupText += "Certainty: " + feature.properties.certainty + "<br>";
+    popupText += "Severity" + feature.properties.severity + "<br>";
+    popupText += "Urgency" + feature.properties.urgency;
+    layer.bindPopup(popupText);
+}
+
+//On Each Feature function for Volcano layer
 function onEachFeatureEQ(feature, layer)
 {
     var date = new Date(feature.properties.time);
