@@ -1,0 +1,379 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "127.8783",
+                    "1.6992"
+                ]
+            },
+            "properties": {
+                "Urgency": "Unknown",
+                "Severity": "Unknown",
+                "Certainty": "Observed",
+                "Description": "The Pusat Vulkanologi dan Mitigasi Bencana Geologi (PVMBG) reported that eruptive activity at Dukono continued during 30 April-6 May. Ash plumes in various combinations of white, gray, and black rose 300-1,600 m above the summit and drifted in multiple directions on most days; white plumes rose 300 m above the summit on 23 May. The Alert Level remained at Level 2 (on a scale of 1-4) and the public was warned to stay 4 km away from the Malupang Warirang Crater.",
+                "Name": "Dukono"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "-71.1641",
+                    "-36.1959"
+                ]
+            },
+            "properties": {
+                "Urgency": "Unknown",
+                "Severity": "Unknown",
+                "Certainty": "Observed",
+                "Description": "The Servicio Geol\u00f3gico Minero Argentino (SEGEMAR) reported that Observatorio Volc\u00e1nico de los Andes del Sur (OVDAS) monitoring stations near Nevado de Longav\u00ed recorded a volcano-tectonic (VT) earthquake at 0149 on 20 May associated with rock fracturing inside the volcano. The earthquake was followed by a swarm of 110 events over the next three hours. VT events were recorded later that morning at 0822, at 0834, and at 0921. The Servicio Nacional de Geolog\u00eda y Miner\u00eda (SERNAGEOMIN) and Servicio Nacional de Prevenci\u00f3n y Respuesta ante Desastres (SENAPRED) stated that during 20-22 May more than 400 VT earthquakes had been recorded, with four having a local magnitude greater than 3; the largest VT earthquake was a local M 4.3 recorded at 0049 on 20 May. The data indicated a seismic source located 4-5 km SW of the crater at a depth of around 3 km. In addition, the seismic network detected several events attributed to fluid dynamics, including five long-period earthquakes and one tremor event, all of which were low energy. Though there is no record of observed eruptive activity at the volcano, the seismic episode was above known baseline activity for the number of events, their magnitude, and the energy released. At 1817 on 22 May SERNAGEOMIN raised the Alert Level to Yellow (the second lowest level on a four-color scale). SENAPRED declared ?Preventative Early Warning? for the communities of Longav\u00ed (53 km WNW), Linares (55 km NW), and Colb\u00fan (60 km NNW), and a 3 km restricted access perimeter around the crater. The Argentine Observatory of Volcanic Surveillance (OAVV) of SEGEMAR also raised the Alert Level to Yellow (the second lowest level on a four-color scale) the next day.",
+                "Name": "Nevado de Longavi"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "98.3920",
+                    "3.1700"
+                ]
+            },
+            "properties": {
+                "Urgency": "Unknown",
+                "Severity": "Unknown",
+                "Certainty": "Observed",
+                "Description": "The Pusat Vulkanologi dan Mitigasi Bencana Geologi (PVMBG) reported that increased seismicity began at Sinabung at 2353 on 21 May when the seismic network recorded continuous tremors with a maximum amplitude of 4 mm. The tremors persisted at least through 22 May and were accompanied by low-frequency earthquakes, hybrid earthquakes, and earthquakes indicating emissions all of which were rarely recorded. Daily white plumes rose as high as 500 m above the summit and drifted in various directions during 21-27 May. The Alert Level remained at 2 (on a scale of 1-4) and the public was warned to stay at least 2 km away from the summit and 3.5 km on the SE flank.",
+                "Name": "Sinabung"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "147.7800",
+                    "-3.0300"
+                ]
+            },
+            "properties": {
+                "Urgency": "Unknown",
+                "Severity": "Unknown",
+                "Certainty": "Observed",
+                "Description": "The Rabaul Volcano Observatory (RVO) reported that the eruption at Titan Ridge, previously identified as the Central Bismarck Sea volcano, decreased during 21-28 May. Hydroacoustic data indicated that the eruption was ongoing, though the number of events had declined. Steam plumes were visible in satellite images rising from the two vents and drifting W and NW during 21-25 May, though they were less vigorous. Pumice continued to rise to the surface, though the pumice rafts were smaller. Minor amounts of ash in the plumes indicated that pumice pieces were degassing at the surface. A M 5.7 earthquake occurred just N of the eruption site at 2008 on 22 May; it was the first recorded since 17 May and did not appear to have changed the eruption characteristics. Thermal anomalies around the base of the plumes were identified in Middle Infrared Observations of Volcanic Activity (MIROVA) hot-spot detection system during 22-24 May. The plumes had significantly decreased during 25-28 May and were characterized as a narrow, wispy fume drifting a few kilometers NW when visible among weather clouds. Some pumice was still being generated and formed rafts that spread SW, W, and NW, but they were much smaller. A small thermal anomaly was identified on 27 May. RVO warned ships to avoid the pumice rafts.  ",
+                "Name": "Titan Ridge"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "130.6589",
+                    "31.5772"
+                ]
+            },
+            "properties": {
+                "Urgency": "Unknown",
+                "Severity": "Unknown",
+                "Certainty": "Observed",
+                "Description": "The Japan Meteorological Agency (JMA) reported ongoing eruptive activity at Minamidake Crater (Aira Caldera?s Sakurajima volcano) during 18-25 May. Crater incandescence was visible in nighttime webcam images during the first half of the week. An eruptive event at 0519 on 22 May generated an ash plume that rose 1.6 km above the crater rim and drifted E. The Alert Level remained at 3 (on a 5-level scale), and the public was warned to be cautious within 2 km of both the Minimadake and Showa craters.",
+                "Name": "Aira"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "160.5950",
+                    "55.9720"
+                ]
+            },
+            "properties": {
+                "Urgency": "Unknown",
+                "Severity": "Unknown",
+                "Certainty": "Observed",
+                "Description": "The Kamchatkan Volcanic Eruption Response Team (KVERT) reported that lava effusion at Bezymianny continued on 21 May, accompanied by gas-and-steam emissions and small hot lava avalanches. Pyroclastic flow deposits on the E flank were visible in satellite data. At 0310 on 21 May the Aviation Color Code was lowered to Yellow (the second lowest level on a four-level scale). A daily thermal anomaly was identified in satellite images during 21-27 May. Ash plumes from an explosive eruption at 1820 on 18 May had drifted more than 1,500 km NW and SW by 21 May and around 2,850 km ESE by 23 May. Dates are reported in UTC; specific events are in local time where noted.",
+                "Name": "Bezymianny"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "-176.1300",
+                    "52.0760"
+                ]
+            },
+            "properties": {
+                "Urgency": "Unknown",
+                "Severity": "Unknown",
+                "Certainty": "Observed",
+                "Description": "The Alaska Volcano Observatory (AVO) reported that slow lava effusion continued to feed a thick flow in Great Sitkin?s summit crater during 20-27 May. Small earthquakes associated with lava dome growth and rockfalls were detected in seismic data on most days. Weather clouds often prevented webcam and satellite observations, though slightly elevated surface temperatures were visible in satellite images during 22-23 May. The Volcano Alert Level remained at Watch (the third level on a four-level scale) and the Aviation Color Code remained at Orange (the third color on a four-color scale).",
+                "Name": "Great Sitkin"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "-174.7750",
+                    "-18.9920"
+                ]
+            },
+            "properties": {
+                "Urgency": "Unknown",
+                "Severity": "Unknown",
+                "Certainty": "Observed",
+                "Description": "The Tonga Geological Services reported that no volcanic activity was detected at Home Reef during 18 April-22 May. Thermal anomalies detected by the Middle Infrared Observations of Volcanic Activity (MIROVA) hot-spot detection system were persistently low. The Aviation Color Code was lowered to Green (the lowest level on a four-level scale), the Maritime Alert Level was lowered to Orange (the second highest level on a four-level scale) with advice to stay at least 1 nautical mile (1.8 km) from the island, and the Alert Level for residents of Vava?u and Ha?apai remained at Green (the first level on a four-level scale).",
+                "Name": "Home Reef"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "127.6324",
+                    "1.4941"
+                ]
+            },
+            "properties": {
+                "Urgency": "Unknown",
+                "Severity": "Unknown",
+                "Certainty": "Observed",
+                "Description": "The Pusat Vulkanologi dan Mitigasi Bencana Geologi (PVMBG) reported that activity at Ibu continued during 21-27 May, with daily eruptive events recorded by the seismic network. Daily gray ash plumes rose 200-800 m above the summit and drifted NE, E, and SE. Incandescence at the summit was visible in some nighttime webcam images. The Alert Level remained at 2 (the second lowest level on a four-level scale) and the public was advised to stay 2 km away from the active crater and 3.5 km away from the N crater wall opening.",
+                "Name": "Ibu"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "123.1300",
+                    "10.4096"
+                ]
+            },
+            "properties": {
+                "Urgency": "Unknown",
+                "Severity": "Unknown",
+                "Certainty": "Observed",
+                "Description": "The Philippine Institute of Volcanology and Seismology (PHIVOLCS) reported continuing eruptive activity at Kanlaon during 20-27 May. The seismic network recorded 6-33 daily volcanic earthquakes, including 1-7 daily periods of volcanic tremor lasting 1-21 minutes each. Sulfur dioxide emissions ranged from 491 to 1,788 tonnes per day. Daily volcanic emissions rose 300-700 m above the summit and drifted W, WSW, and SW. During 20 and 22-25 May there were 2-7 daily periods of ash emissions lasting as short as one minute to as long as one hour and 32 minutes. Specifically, the webcam recorded ash emissions at 1601 on 22 May rising 400 m above the crater rim and drifting SW, at 0659 on 24 May rising 300 m above the crater rim and drifting SW, and at 1037 on 25 May rising 400 m above the crater rim and drifting WSW.\nThe Alert Level remained at 2 (on a scale of 0-5); the public was warned to stay out of the 4-km-radius Permanent Danger Zone (PDZ) and pilots were advised to avoid flying close to the summit.\n",
+                "Name": "Kanlaon"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "-155.2870",
+                    "19.4210"
+                ]
+            },
+            "properties": {
+                "Urgency": "Unknown",
+                "Severity": "Unknown",
+                "Certainty": "Observed",
+                "Description": "The Hawaiian Volcano Observatory (HVO) reported that the eruption within Kilauea?s Kaluapele summit caldera, characterized by episodic fountaining, incandescence, and intermittent spatter from craters along the SW margin of Halema?uma?u Crater, continued at variable levels during 20-27 May. Nighttime incandescence was persistent at both the N and S vents, though it was stronger at the S vent during the first part of the week. During a helicopter overflight on 22 May HVO geologists observed active lava deep within both vents. The Volcano Alert Level remained at Advisory (the second lowest level on a four-level scale) and the Aviation Color Code remained at Yellow (the second lowest color on a four-color scale).",
+                "Name": "Kilauea"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "123.5080",
+                    "-8.2740"
+                ]
+            },
+            "properties": {
+                "Urgency": "Unknown",
+                "Severity": "Unknown",
+                "Certainty": "Observed",
+                "Description": "The Pusat Vulkanologi dan Mitigasi Bencana Geologi (PVMBG) reported ongoing eruptive activity at Lewotolok during 21-27 May. White plumes rose as high as 100 m above the summit and drifted in multiple directions on most days. At 1956 on 23 May a white-and-gray ash plume rose 200 m above the summit of the main cone and drifted NW. At the same time a webcam image showed incandescent material being ejected above the summit and falling onto the upper cone?s flanks. Beginning at 1900 on 25 May the seismic network recorded a sequence of ?drumbeat? signals, characterized by a series of hybrid/multi-phase earthquakes with relatively uniform waveforms and inter-event intervals. The sequence persisted for about an hour with the intervals between signals lengthening with time before ceasing. A spike in Real-time Seismic Amplitude Measurements (RSAM) data was recorded as a result of the drumbeat sequence. Rumbling was heard at the observation post (6 km SW) on 26 May. White-and-gray plumes rose 50 m above the summit and drifted E. Incandescent material descending the flanks of the cone was visible in a webcam image at 1939 that same day. The Alert Level remained at 2 (on a scale of 1-4) and the public was warned to stay 2 km away from the summit.",
+                "Name": "Lewotolok"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "123.6850",
+                    "13.2570"
+                ]
+            },
+            "properties": {
+                "Urgency": "Unknown",
+                "Severity": "Unknown",
+                "Certainty": "Observed",
+                "Description": "The Philippine Institute of Volcanology and Seismology (PHIVOLCS) reported that the eruption at Mayon continued during 20-27 May, characterized by lava effusion, pyroclastic density currents (PDCs), incandescent rockfalls, ash-and-gas plumes, and occasional minor Strombolian activity. Emissions were visible daily, rising as high as 900 m above the summit and drifting mainly WNW, W, WSW, and SW. Each day the seismic network recorded 286-351 rockfalls, 0-8 PDCs, and 27-57 volcanic earthquakes. The earthquake counts included 4-20 daily periods of volcanic tremor, each lasting between one minute to two hours and 25 minutes. Daily measurements of sulfur dioxide emissions averaged 988-2,615 tonnes per day. The lava flows did not advance in the Basud (E) and Bonga (SE) drainages, remaining 3.8 and 3.2 km long, respectively. Lava flows in the Mi-isi drainage extended another 100 m to 1.8 km by 24 May.\n  \nThe number of evacuees fluctuated; by 1800 on 26 May a total of 3,974 people (1,088 families) were staying in 12 evacuation shelters, and an additional 137 people (40 families) were staying with friends or relatives, according to the Disaster Response Operations Monitoring and Information Center (DROMIC). The Alert Level remained at 3 (on a 0-5 scale) and residents were reminded to stay away from the 6-km-radius Permanent Danger Zone (PDZ). PHIVOLCS recommended that civil aviation authorities advise pilots to avoid flying close to the summit.\n",
+                "Name": "Mayon"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "110.4460",
+                    "-7.5400"
+                ]
+            },
+            "properties": {
+                "Urgency": "Unknown",
+                "Severity": "Unknown",
+                "Certainty": "Observed",
+                "Description": "The Pusat Vulkanologi dan Mitigasi Bencana Geologi (PVMBG) reported that the eruption at Merapi (on Java) continued during 21-27 May with occasional lava avalanches produced by the active lava dome on the upper SW flank. White plumes rose as high as 650 m above the summit on most days. There were 2-10 daily lava avalanches that traveled as far as 2 km down the Sat/Putih drainage (W flank). The Alert Level remained at 3 (on a scale of 1-4), and the public was warned to stay 3-7 km away from the summit, based on location.",
+                "Name": "Merapi"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "-98.6220",
+                    "19.0230"
+                ]
+            },
+            "properties": {
+                "Urgency": "Unknown",
+                "Severity": "Unknown",
+                "Certainty": "Observed",
+                "Description": "The Centro Nacional de Prevenci\u00f3n de Desastres (CENAPRED) reported that eruptive activity was low at Popocat\u00e9petl during 20-27 May. The seismic network recorded 10-53 long-period events per day, though 148 long-period events were detected during 26-27 May. The signals were accompanied by steam-and-gas emissions that sometimes contained ash and drifted mostly E and SE. In addition, the seismic network recorded a period of tremor that lasted just over two hours during 23-24 May and one volcano-tectonic earthquake at 0136 on 25 May. According to the Washington Volcanic Ash Advisory Center (VAAC) ash plumes visible in webcam and satellite images during 25-27 May rose to 6.1 km (20,000 ft) a.s.l. (as high as 400 m above the summit) and drifted S, SSE, and SE. The Alert Level remained at Yellow, Phase Two (the middle level on a three-color scale) and the public was warned to stay 12 km away from the crater.",
+                "Name": "Popocatepetl"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "-76.3948",
+                    "2.3095"
+                ]
+            },
+            "properties": {
+                "Urgency": "Unknown",
+                "Severity": "Unknown",
+                "Certainty": "Observed",
+                "Description": "The Servicio Geologico Colombiano (SGC) reported ongoing low-level eruptive activity at Purac\u00e9 during 19-25 May. Seismic activity associated with rock fracturing processes was mainly located beneath Piocollo and Purac\u00e9 volcanoes at depths of 1-3 km; the level of seismicity was similar to the previous week. A thermal anomaly continued to be detected in satellite images within the crater of Purac\u00e9 and in the fumarolic field along its outer rim. Sulfur dioxide emissions rates notably increased. Continuous tremor levels associated with fluid movement and emissions intensified, with signals located beneath both Purac\u00e9 and Piocollo at depths less than 3 km. Gas-and-ash emissions rose as high as 3 km above the summit and drifted NW and W. Ashfall was reported in the rural communities of Campamento, Cristales, Cobal\u00f3, 20 de Julio, Anamb\u00edo, Pisanrabo, and San Juan (Purac\u00e9 municipality), and in the district of Paletar\u00e1, the urban zone, and in the municipal seat of Coconuco. Ashfall reports also came in from the Piedra de Le\u00f3n sector in the municipality of Sotar\u00e1 and from certain sectors of the city of Popay\u00e1n. The Alert Level remained at Yellow (the second lowest level on a four-color scale).",
+                "Name": "Purace"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "-77.6560",
+                    "-0.0770"
+                ]
+            },
+            "properties": {
+                "Urgency": "Unknown",
+                "Severity": "Unknown",
+                "Certainty": "Observed",
+                "Description": "The Instituto Geof\u00edsico-Escuela Polit\u00e9cnica Nacional (IG-EPN) reported that eruptive activity at Reventador continued at a high level during 20-27 May. Seismicity included 64-84 daily explosions, long-period earthquakes, harmonic tremor, and tremor associated with emissions. Ash-and-gas plumes, sometimes multiple per day, were visible in webcam and satellite images and reported by the Washington Volcanic Ash Advisory Center (VAAC) on most days. The ash plumes rose 500-1,200 m above the crater rim and drifted W and NW. Incandescent blocks were also visible during dark hours on most days rolling as far as 1 km down the flanks. Thermal anomalies were often identified in satellite images. Weather clouds sometimes obscured views. On 21 and 26 May small-to-moderate secondary lahars descended the Marker River on the S flank. Secretar\u00eda de Gesti\u00f3n de Riesgos (SGR) maintained the Alert Level at Orange (the second highest level on a four-color scale).",
+                "Name": "Reventador"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "-71.8570",
+                    "-15.7870"
+                ]
+            },
+            "properties": {
+                "Urgency": "Unknown",
+                "Severity": "Unknown",
+                "Certainty": "Observed",
+                "Description": "The Instituto Geof\u00edsico del Per\u00fa?s (IGP) Centro Vulcanol\u00f3gico Nacional (CENVUL) reported continuing eruptive activity at Sabancaya during 18-24 May. The seismic network detected 81 seismic events related to the movement of magmatic fluids and additional earthquakes indicating rock fracturing. No explosions were recorded. Gas, steam, and ash plumes periodically rose as high as 1.7 km above the crater rim and drifted less than 10 km NE, E, and SE. Thermal anomalies on the crater floor were identified in satellite images. The Alert Level remained at Orange (the third level on a four-color scale) and the public was warned to stay outside of a 12 km radius from the summit.",
+                "Name": "Sabancaya"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "-78.3410",
+                    "-2.0050"
+                ]
+            },
+            "properties": {
+                "Urgency": "Unknown",
+                "Severity": "Unknown",
+                "Certainty": "Observed",
+                "Description": "The Instituto Geof\u00edsico-Escuela Polit\u00e9cnica Nacional (IG-EPN) reported that the eruption continued at Sangay during 20-27 May. The seismic network recorded 54 explosions during 20-21 May and 178-356 daily explosions during the rest of the week. Ash-and-gas plumes were visible in webcam views, satellite images, and reported by the Washington Volcanic Ash Advisory Center on most days rising 600-900 m above the crater rim and drifting S, SW, W, and NW. Weather conditions sometimes prevented views. The Secretar\u00eda de Gesti\u00f3n de Riesgos (SGR) maintained the Alert Level at Yellow (the second highest level on a four-color scale).",
+                "Name": "Sangay"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "112.9220",
+                    "-8.1080"
+                ]
+            },
+            "properties": {
+                "Urgency": "Unknown",
+                "Severity": "Unknown",
+                "Certainty": "Observed",
+                "Description": "The Pusat Vulkanologi dan Mitigasi Bencana Geologi (PVMBG) reported that activity continued at Semeru during 21-27 May, with daily eruptive events recorded by the seismic network. Daily white-to-gray or gray ash plumes rose 300-1,000 m above the summit and drifted in multiple directions. Incandescent material on the upper SE flank was visible at 0443 on 21 May in a webcam image. The Alert Level remained at 3 (the second lowest level on a scale of 1-4) and the public was warned to stay at least 5 km away from the summit in all directions, 13 km from the summit on the SE flank along the Kobokan drainage, and 500 m from the banks of the Kobokan drainage as far as 17 km SE of the summit.",
+                "Name": "Semeru"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "161.3600",
+                    "56.6530"
+                ]
+            },
+            "properties": {
+                "Urgency": "Unknown",
+                "Severity": "Unknown",
+                "Certainty": "Observed",
+                "Description": "The Pusat Vulkanologi dan Mitigasi Bencana Geologi (PVMBG) reported that increased seismicity began at Sinabung at 2353 on 21 May when the seismic network recorded continuous tremors with a maximum amplitude of 4 mm. The tremors persisted at least through 22 May and were accompanied by low-frequency earthquakes, hybrid earthquakes, and earthquakes indicating emissions all of which were rarely recorded. Daily white plumes rose as high as 500 m above the summit and drifted in various directions during 21-27 May. The Alert Level remained at 2 (on a scale of 1-4) and the public was warned to stay at least 2 km away from the summit and 3.5 km on the SE flank.",
+                "Name": "Sheveluch"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "138.5230",
+                    "36.4060"
+                ]
+            },
+            "properties": {
+                "Urgency": "Unknown",
+                "Severity": "Unknown",
+                "Certainty": "Observed",
+                "Description": "The Japan Meteorological Agency (JMA) reported declining unrest at Asamayama. Deformation, notably on the W flank, stagnated in May 2024. Sulfur dioxide emissions began decreasing in June 2025 and by December of that year had reached low levels. The number of shallow volcanic earthquakes had been declining since July 2025. The average number of earthquakes per day overall decreased from around 30 in March 2026 to below 30 by May. The Alert Level was lowered to 1 (on a scale of 1-5) at 1100 on 22 May and the public was warned that eruptive products could impact areas within 500 m of the crater. ",
+                "Name": "Asamayama"
+            }
+        }
+    ]
+}
