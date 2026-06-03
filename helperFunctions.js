@@ -84,8 +84,8 @@ function onEachFeatureVC(feature, layer)
     //popupText += "Date: " + date.toLocaleString()  + "<br>";
     popupText += "Coordinates: " + feature.geometry.coordinates[1] + ", " + feature.geometry.coordinates[0] + "<br>";
     popupText += "Certainty: " + feature.properties.Certainty + "<br>";
-    popupText += "Severity" + feature.properties.Severity + "<br>";
-    popupText += "Urgency" + feature.properties.Urgency;
+    popupText += "Severity: " + feature.properties.Severity + "<br>";
+    popupText += "Urgency: " + feature.properties.Urgency;
     layer.bindPopup(popupText);
 }
 
