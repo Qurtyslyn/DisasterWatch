@@ -80,7 +80,7 @@ function onEachFeatureFire(feature, layer)
 function onEachFeatureVC(feature, layer)
 {
     //var date = new Date(feature.properties.time);
-    var popupText = "Name: " + feature.properties.Name + "<br>";
+    var popupText = "Volcano: " + feature.properties.Name + "<br>";
     //popupText += "Date: " + date.toLocaleString()  + "<br>";
     popupText += "Coordinates: " + feature.geometry.coordinates[1] + ", " + feature.geometry.coordinates[0] + "<br>";
     popupText += "Certainty: " + feature.properties.Certainty + "<br>";
