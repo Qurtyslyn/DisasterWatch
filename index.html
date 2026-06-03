@@ -255,7 +255,7 @@
         var VCgroup = new L.LayerGroup();
 
         //Add VolcanotLayer to Map
-        const vcresponse = fetch(volcanoURL).then(eqresponse => vcresponse.json()).then(vcresponse => {
+        const vcresponse = fetch(volcanoURL).then(vcresponse => vcresponse.json()).then(vcresponse => {
             L.geoJson(vcresponse, {
                 pointToLayer: function (feature, latlng)
                 {
