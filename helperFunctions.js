@@ -79,13 +79,16 @@ function onEachFeatureFire(feature, layer)
 //On Each Feature function for Earthquake layer
 function onEachFeatureVC(feature, layer)
 {
-    //var date = new Date(feature.properties.time);
-    var popupText = "Volcano: " + feature.properties.Name + "<br>";
-    //popupText += "Date: " + date.toLocaleString()  + "<br>";
+    var date = new Date(feature.properties.StartDate);
+    var popupText = "Volcano: " + feature.properties.Name + " - " + feature.properties.Country + "<br>";
+    popupText += "Region: " + feature.properties.Region + "<br>";
+    popupText += "Date: " + date.toLocaleString()  + "<br>";
     popupText += "Coordinates: " + feature.geometry.coordinates[1] + ", " + feature.geometry.coordinates[0] + "<br>";
     popupText += "Certainty: " + feature.properties.Certainty + "<br>";
+    popupText += "Report Type: " + feature.properties.ReportType + "<br>";
     popupText += "Severity: " + feature.properties.Severity + "<br>";
-    popupText += "Urgency: " + feature.properties.Urgency;
+    popupText += "Urgency: " + feature.properties.Urgency + "<br><br>";
+    popupText += "Description: " + feature.properties.Description;
     layer.bindPopup(popupText);
 }
 
