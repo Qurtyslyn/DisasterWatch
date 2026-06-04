@@ -127,6 +127,7 @@
             var div = L.DomUtil.create("div", "legend");
             div.innerHTML += "<h4>Legend</h4>";
             div.innerHTML += '<span id="Earthquake"><span class="symbol round earthquake"></span><span>Earthquake</span></span><br>';
+            div.innerHTML += '<span id="Volcano"><span class="symbol round volcano"></span><span>Volcano</span></span><br>';
             div.innerHTML += '<span id="Fire"><span class="symbol fire"></span><span>Wildfire</span></span><br>';
             //div.innerHTML += '<i class="icon" style="background-image: url(https://d30y9cdsu7xlg0.cloudfront.net/png/194515-200.png);background-repeat: no-repeat;"></i><span>Grænse</span><br>';
 
@@ -268,7 +269,7 @@
                     var options = {
                         radius: 10,
                         fillColor: color,
-                        fillOpacity: 0.7,
+                        fillOpacity: 0.5,
                         color: borderColor,
                         stroke: true,
 

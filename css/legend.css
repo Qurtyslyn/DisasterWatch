@@ -61,6 +61,13 @@
   box-sizing: border-box;
 }
 
+.legend .volcano {
+  background: rgba(235,216,52,0.5);
+  border-style: solid;
+  border-color: rgba(227,9,9,1);
+  box-sizing: border-box;
+}
+
 .legend .sws {
   background: rgba(255,0,255,0.5);
   border-style: solid;
