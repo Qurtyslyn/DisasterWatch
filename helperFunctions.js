@@ -61,13 +61,26 @@ function addToLegend(event)
     legend.innerHTML += '<span id="' + event.replaceAll(" ","") +'"><span class="symbol square" style="background: rgba(' + background + ',0.5); border-color: rgba(' + border +',1.0)"></span><span>' + event + '</span></span><br>';
 }
 
+//Function to escape text for HTML
+function escapeHTML(str) {
+    return str.replace(/[&<>'"]/g,
+        tag => ({
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            "'": '&#39;',
+            '"': '&quot;',
+        }[tag] || tag)
+    );
+}
+
 //Functions to create Popup texts for Alert types
 //On Each Feature function for fire layer
 function onEachFeatureFire(feature, layer)
 {
     var date = new Date(feature.properties.attr_FireDiscoveryDateTime);
     var updated = new Date(feature.properties.poly_DateCurrent);
-    var popupText = "Incident Name: " + feature.properties.poly_IncidentName + "<br>";
+    var popupText = "Incident Name: " + escapeHTML(feature.properties.poly_IncidentName) + "<br>";
     popupText += "Discovery Date: " + date.toLocaleString()  + "<br>";
     popupText += "Last Updated: " + updated.toLocaleString() + "<br>";
     popupText += "Origin: " + feature.properties.attr_InitialLatitude + ", " + feature.properties.attr_InitialLongitude + "<br>";
@@ -80,7 +93,7 @@ function onEachFeatureFire(feature, layer)
 function onEachFeatureVC(feature, layer)
 {
     var date = new Date(feature.properties.StartDate);
-    var popupText = "Volcano: " + feature.properties.Name + " - " + feature.properties.Country + "<br>";
+    var popupText = "Volcano: " + escapeHTML(feature.properties.Name) + " - " + feature.properties.Country + "<br>";
     popupText += "Region: " + feature.properties.Region + "<br>";
     popupText += "Date: " + date.toLocaleDateString()  + "<br>";
     popupText += "Coordinates: " + feature.geometry.coordinates[1] + ", " + feature.geometry.coordinates[0] + "<br>";
@@ -88,7 +101,7 @@ function onEachFeatureVC(feature, layer)
     popupText += "Report Type: " + feature.properties.ReportType + "<br>";
     popupText += "Severity: " + feature.properties.Severity + "<br>";
     popupText += "Urgency: " + feature.properties.Urgency + "<br><br>";
-    popupText += "Description: " + feature.properties.Description;
+    popupText += "Description: " + escapeHTML(feature.properties.Description);
     layer.bindPopup(popupText);
 }
 
