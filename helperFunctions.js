@@ -63,7 +63,7 @@ function addToLegend(event)
 
 //Function to escape text for HTML
 function escapeHTML(str) {
-    return str.replace(/[&<>'"]/g,
+    return str.replace(/[&<>'"?]/g,
         tag => ({
             '&': '&amp;',
             '<': '&lt;',
