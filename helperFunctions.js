@@ -70,6 +70,7 @@ function escapeHTML(str) {
             '>': '&gt;',
             "'": '&#39;',
             '"': '&quot;',
+            '?': '&quot;', //Volanoes XML data has ? in place of '
         }[tag] || tag)
     );
 }
