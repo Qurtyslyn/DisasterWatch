@@ -107,7 +107,7 @@ function onEachFeatureVC(feature, layer)
 }
 
 //On Each Feature function for Hurricane layer
-function onEachFeatureVC(feature, layer)
+function onEachFeatureHC(feature, layer)
 {
     // var date = new Date(feature.properties.StartDate);
     // var popupText = "Volcano: " + escapeHTML(feature.properties.Name) + " - " + feature.properties.Country + "<br>";
