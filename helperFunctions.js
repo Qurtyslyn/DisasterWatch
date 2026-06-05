@@ -90,7 +90,7 @@ function onEachFeatureFire(feature, layer)
     layer.bindPopup(popupText);
 }
 
-//On Each Feature function for Earthquake layer
+//On Each Feature function for Volcano layer
 function onEachFeatureVC(feature, layer)
 {
     var date = new Date(feature.properties.StartDate);
@@ -106,7 +106,23 @@ function onEachFeatureVC(feature, layer)
     layer.bindPopup(popupText);
 }
 
-//On Each Feature function for Volcano layer
+//On Each Feature function for Hurricane layer
+function onEachFeatureVC(feature, layer)
+{
+    // var date = new Date(feature.properties.StartDate);
+    // var popupText = "Volcano: " + escapeHTML(feature.properties.Name) + " - " + feature.properties.Country + "<br>";
+    // popupText += "Region: " + feature.properties.Region + "<br>";
+    // popupText += "Date: " + date.toLocaleDateString()  + "<br>";
+    // popupText += "Coordinates: " + feature.geometry.coordinates[1] + ", " + feature.geometry.coordinates[0] + "<br>";
+    // popupText += "Certainty: " + feature.properties.Certainty + "<br>";
+    // popupText += "Report Type: " + feature.properties.ReportType + "<br>";
+    // popupText += "Severity: " + feature.properties.Severity + "<br>";
+    // popupText += "Urgency: " + feature.properties.Urgency + "<br><br>";
+    // popupText += "Description: " + escapeHTML(feature.properties.Description);
+    // layer.bindPopup(popupText);
+}
+
+//On Each Feature function for Earthquate layer
 function onEachFeatureEQ(feature, layer)
 {
     var date = new Date(feature.properties.time);
