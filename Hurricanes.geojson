@@ -5201,8 +5201,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    "13.3",
-                    "-133.7"
+                    "-133.7",
+                    "13.3"
                 ]
             },
             "properties": {
