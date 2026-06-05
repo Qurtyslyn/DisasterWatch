@@ -258,7 +258,7 @@
                 });*/
         var VCgroup = new L.LayerGroup();
 
-        //Add VolcanotLayer to Map
+        //Add Volcano Layer to Map
         const vcresponse = fetch(volcanoURL).then(vcresponse => vcresponse.json()).then(vcresponse => {
             L.geoJson(vcresponse, {
                 pointToLayer: function (feature, latlng)
@@ -288,9 +288,19 @@
         //Add Hurricanes to Map
         var HCgroup = new L.LayerGroup();
 
-        //Add VolcanotLayer to Map
+        //Add Hurricane Layer to Map
         const hcresponse = fetch(hurricaneURL).then(hcresponse => hcresponse.json()).then(hcresponse => {
             L.geoJson(hcresponse, {
+                style: function(feature)
+                {
+                    if(feature.geometry.type === "Polygon")
+                    {
+                        return {fillColor: "#68F09A", color: "#FF00F0", fillOpacity: 0.5 } 
+                    }
+                    
+                },
+
+
                 pointToLayer: function (feature, latlng)
                 {
                     var color = "#EBD834";
