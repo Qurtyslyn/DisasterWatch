@@ -54,7 +54,7 @@
         var earthquakeURL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson";
         var nwsURL = "https://api.weather.gov/alerts/active?status=actual";
         var volcanoURL = "./Volcanoes.geojson";
-        var hurricaneURL = 'https://www.nhc.noaa.gov/gis/kml/nhc_active.kml';
+        var hurricaneURL = './Hurricanes.geojson';
 
         //Create Map Base Layers
 
@@ -286,51 +286,81 @@
         VCgroup.addTo(map);
 
         //Add Hurricanes to Map
-        hurricaneFiles = ['HurricaneTest.kml','Cone.kml','PastTrack.kml','Track.kml']
-        var Hurricanegroup = new L.LayerGroup();
+        var HCgroup = new L.LayerGroup();
 
-        for(item of hurricaneFiles)
-        {
-            omnivore.kml('data/hurricanes/' + item)
-            .on('ready', function() {
-            // when this is fired, the layer
-            // is done being initialized
-                console.log("Hurricane Loaded");
-            })
-            .on('error', function() {
-                // fired if the layer can't be loaded over AJAX
-                // or can't be parsed
-                console.log("Hurricane Failed");
-            }).addTo(Hurricanegroup);
-        }
+        //Add VolcanotLayer to Map
+        const hcresponse = fetch(hurricaneURL).then(hcresponse => hcresponse.json()).then(hcresponse => {
+            L.geoJson(hcresponse, {
+                pointToLayer: function (feature, latlng)
+                {
+                    var color = "#EBD834";
+                    var borderColor = "#E30909";
 
-        overlayTree.children.push({label: "Hurricanes", layer: Hurricanegroup});
-        //Hurricanegroup.addTo(map);
+                    var options = {
+                        radius: 10,
+                        fillColor: color,
+                        fillOpacity: 0.5,
+                        color: borderColor,
+                        stroke: true,
 
-        //L.geoJson('data/hurricanes/test.geojson').addTo(map);
+                    };
 
-        //Add Hurricane Alerts Layer to Map
-        const Gjresponse = fetch('data/hurricanes/test.geojson', {headers: {"accept": "application/geo+json"}}).then(Gjresponse => Gjresponse.json()).then(Gjresponse => {
-            L.geoJson(Gjresponse//, {
-            //     style: function(feature) {
-            //         return getPolygonColors(feature.properties.event);
-            //     },
-            //     onEachFeature: onEachFeatureNWS,
-            //     //Filter out alerts that use Zones rather than Polygons for areas
-            //     filter: function(feature, layer) {
-            //         if(feature.geometry == null)
-            //         {
-            //             return false;
-            //         }
-            //         else
-            //         {
-            //             return true;
-            //         }
-            //     }
-            // }
+                    return L.circleMarker(latlng, options);
+                },
+                onEachFeature: onEachFeatureVC
             
-        ).addTo(map);
+        }).addTo(HCgroup);
         })
+
+        overlayTree.children.push({label: "Hurricanes", layer: HCgroup});
+        HCgroup.addTo(map);
+
+
+        // hurricaneFiles = ['HurricaneTest.kml','Cone.kml','PastTrack.kml','Track.kml']
+        // var Hurricanegroup = new L.LayerGroup();
+
+        // for(item of hurricaneFiles)
+        // {
+        //     omnivore.kml('data/hurricanes/' + item)
+        //     .on('ready', function() {
+        //     // when this is fired, the layer
+        //     // is done being initialized
+        //         console.log("Hurricane Loaded");
+        //     })
+        //     .on('error', function() {
+        //         // fired if the layer can't be loaded over AJAX
+        //         // or can't be parsed
+        //         console.log("Hurricane Failed");
+        //     }).addTo(Hurricanegroup);
+        // }
+
+        // overlayTree.children.push({label: "Hurricanes", layer: Hurricanegroup});
+        // //Hurricanegroup.addTo(map);
+
+        // //L.geoJson('data/hurricanes/test.geojson').addTo(map);
+
+        // //Add Hurricane Alerts Layer to Map
+        // const Gjresponse = fetch(hurricaneURL, {headers: {"accept": "application/geo+json"}}).then(Gjresponse => Gjresponse.json()).then(Gjresponse => {
+        //     L.geoJson(Gjresponse//, {
+        //     //     style: function(feature) {
+        //     //         return getPolygonColors(feature.properties.event);
+        //     //     },
+        //     //     onEachFeature: onEachFeatureNWS,
+        //     //     //Filter out alerts that use Zones rather than Polygons for areas
+        //     //     filter: function(feature, layer) {
+        //     //         if(feature.geometry == null)
+        //     //         {
+        //     //             return false;
+        //     //         }
+        //     //         else
+        //     //         {
+        //     //             return true;
+        //     //         }
+        //     //     }
+        //     // }
+            
+        // ).addTo(map);
+        // })
 
 
         //Add Layer to Map
