@@ -241,6 +241,12 @@
         //Add NWS Alerts Layer to Map
         const NWSresponse = fetch(nwsURL, {headers: {"accept": "application/geo+json"}}).then(NWSresponse => NWSresponse.json()).then(NWSresponse => {
             //Add geometry to zones that do not have it.
+            if(feature.geometry == null)
+            {
+                item = nwsCoastalZones.find(zone => zone.properties.ID === feature.properties.geocode.UGC);
+                console.log(item);
+        //     feature.geometry = item.geometry.coordinates;
+            }
 
             L.geoJson(NWSresponse, {
                 style: function(feature) {
