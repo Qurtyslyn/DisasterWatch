@@ -241,9 +241,10 @@
         //Add NWS Alerts Layer to Map
         const NWSresponse = fetch(nwsURL, {headers: {"accept": "application/geo+json"}}).then(NWSresponse => NWSresponse.json()).then(NWSresponse => {
             //Add geometry to zones that do not have it.
-            // NWSresponse.forEach(feature => {
+            NWSresponse.forEach(feature => {
+                console.log(feature);
                 
-            // });
+            });
         //     //if(NWSresponse.feature.geometry == null)
         //     {
         //         item = coastalZones.find(zone => zone.properties.ID === NWSresponse.feature.properties.geocode.UGC);
@@ -251,7 +252,7 @@
         // //     feature.geometry = item.geometry.coordinates;
         //     }
 
-            console.log(NWSresponse.FeatureCollection);
+            
 
             L.geoJson(NWSresponse, {
                 style: function(feature) {
