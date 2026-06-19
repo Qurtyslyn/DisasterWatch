@@ -58,18 +58,14 @@
         var nwsCoastalZonesURL = './NWSCoastalZones.geojson';
         var nwsZonesURL = './NWSZones.geojson';
 
-        const coastalResponse = await fetch(nwsCoastalZonesURL);
-        const coastalNWS = await coastalResponse.json()
+        // const coastalResponse = await fetch(nwsCoastalZonesURL);
+        // const coastalNWS = await coastalResponse.json()
 
-        // function getJSONData(url)
-        // {
-        //     var jsonData;
-
-        //     const urlResponse = await fetch(url);
-
-
-        //     fetch(url).then(response => response.json()).then(response => {jsonData = response})
-        // }
+        async function getJSONData(url)
+        {
+            const urlResponse = await fetch(url);
+            return urlResponse.json()
+        }
 
         //Create Map Base Layers
 
@@ -239,7 +235,7 @@
 
         var NWSgroup = new L.LayerGroup();
 
-//        var nwsCoastalZones = getJSONData(nwsCoastalZonesURL);
+        var nwsCoastalZones = getJSONData(nwsCoastalZonesURL);
 
         //Add NWS Alerts Layer to Map
         const NWSresponse = fetch(nwsURL, {headers: {"accept": "application/geo+json"}}).then(NWSresponse => NWSresponse.json()).then(NWSresponse => {
