@@ -58,14 +58,10 @@
         var nwsCoastalZonesURL = './NWSCoastalZones.geojson';
         var nwsZonesURL = './NWSZones.geojson';
 
+        //fetch(fireURL).then(response => response.json()).then(response
         function getJSONData(url)
         {
-            fetch(url).then(response => {
-                if(response.ok)
-                {
-                    return response.json();
-                }
-            })
+            fetch(url).then(response => response.json()).then(response => {return response})
         }
 
         //Create Map Base Layers
