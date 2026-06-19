@@ -63,7 +63,7 @@
             fetch(url).then(response => {
                 if(response.ok)
                 {
-                    return JSON.parse(response.json());
+                    return response.json();
                 }
             })
         }
