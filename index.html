@@ -243,7 +243,7 @@
             //Add geometry to zones that do not have it.
             if(feature.geometry == null)
             {
-                item = nwsCoastalZones.find(zone => zone.properties.ID === feature.properties.geocode.UGC);
+                item = coastalZones.find(zone => zone.properties.ID === NWSResponse.feature.properties.geocode.UGC);
                 console.log(item);
         //     feature.geometry = item.geometry.coordinates;
             }
