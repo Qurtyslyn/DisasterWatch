@@ -136,31 +136,17 @@ function onEachFeatureEQ(feature, layer)
     layer.bindPopup(popupText);
 }
 
-//Load JSON data for onEachFeatureNWS
-var nwsCoastalZonesURL = './NWSCoastalZones.geojson';
-var nwsZonesURL = './NWSZones.geojson';
 
-function getJSONData(url)
-{
-    fetch(url).then(response => {
-        if(response.ok)
-        {
-            return JSON.parse(response.json());
-        }
-    })
-}
-
-var nwsCoastalZones = getJSONData(nwsCoastalZonesURL);
 
 //On Each Feature function for NWS alert layers
 function onEachFeatureNWS(feature, layer)
 {
-    if(feature.geometry == null)
-    {
-        item = nwsCoastalZones.find(zone => zone.properties.ID === feature.properties.geocode.UGC);
+    // if(feature.geometry == null)
+    // {
+    //     item = nwsCoastalZones.find(zone => zone.properties.ID === feature.properties.geocode.UGC);
 
-        feature.geometry = item.geometry.coordinates;
-    }
+    //     feature.geometry = item.geometry.coordinates;
+    // }
 
     var starts = new Date(feature.properties.effective);
     var expires = new Date(feature.properties.expires);

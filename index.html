@@ -55,8 +55,18 @@
         var nwsURL = "https://api.weather.gov/alerts/active?status=actual";
         var volcanoURL = "./Volcanoes.geojson";
         var hurricaneURL = './Hurricanes.geojson';
-        var nwsCoastalZones = './NWSCoastalZones.geojson';
-        var nwsZones = './NWSZones.geojson';
+        var nwsCoastalZonesURL = './NWSCoastalZones.geojson';
+        var nwsZonesURL = './NWSZones.geojson';
+
+        function getJSONData(url)
+        {
+            fetch(url).then(response => {
+                if(response.ok)
+                {
+                    return JSON.parse(response.json());
+                }
+            })
+        }
 
         //Create Map Base Layers
 
@@ -225,8 +235,12 @@
 
         var NWSgroup = new L.LayerGroup();
 
+        var nwsCoastalZones = getJSONData(nwsCoastalZonesURL);
+
         //Add NWS Alerts Layer to Map
         const NWSresponse = fetch(nwsURL, {headers: {"accept": "application/geo+json"}}).then(NWSresponse => NWSresponse.json()).then(NWSresponse => {
+            //Add geometry to zones that do not have it.
+
             L.geoJson(NWSresponse, {
                 style: function(feature) {
                     return getPolygonColors(feature.properties.event);
