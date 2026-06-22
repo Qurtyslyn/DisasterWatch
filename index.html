@@ -258,9 +258,14 @@
                 if(data.geometry === null)
                 {
                     var id = data.properties.geocode.UGC
+
+                    if(id.length === 1)
+                    {
+                        var polygon = nwsCoastalZones.features.find(item => item.properties.ID === id[0])
+                    }
                 }
 
-                console.log(id);
+                console.log(polygon);
             })
 
             
