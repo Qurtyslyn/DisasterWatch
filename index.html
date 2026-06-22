@@ -251,7 +251,7 @@
         //         console.log(item);
         // //     feature.geometry = item.geometry.coordinates;
         //     }
-
+            NWSCoastalData = nwsCoastalZones.json();
             console.log(NWSresponse.features);
 
             NWSresponse.features.forEach(data => {
@@ -261,7 +261,8 @@
 
                     if(id.length === 1)
                     {
-                        var polygon = nwsCoastalZones.find(item => item.features.properties.ID === id[0])
+                        var polygon = NWSCoastalData.find(item => item.features.properties.ID === id[0]);
+
                     }
                 }
 
