@@ -254,6 +254,15 @@
 
             console.log(NWSresponse.features);
 
+            NWSresponse.feature.forEach(data => {
+                if(data.geometry === null)
+                {
+                    var id = data.properties.geocode.UGC
+                }
+
+                console.log(id);
+            })
+
             
 
             L.geoJson(NWSresponse, {
