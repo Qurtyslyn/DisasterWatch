@@ -254,7 +254,7 @@
 
             console.log(NWSresponse.features);
 
-            NWSresponse.feature.forEach(data => {
+            NWSresponse.features.forEach(data => {
                 if(data.geometry === null)
                 {
                     var id = data.properties.geocode.UGC
