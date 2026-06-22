@@ -237,7 +237,7 @@
 
         var nwsCoastalZones = getJSONData(nwsCoastalZonesURL);
 
-        nwsCoastalZones.then(coastalZones => {
+        //nwsCoastalZones.then(coastalZones => {
         //Add NWS Alerts Layer to Map
         const NWSresponse = fetch(nwsURL, {headers: {"accept": "application/geo+json"}}).then(NWSresponse => NWSresponse.json()).then(NWSresponse => {
             //Add geometry to zones that do not have it.
@@ -290,7 +290,7 @@
             
         ).addTo(NWSgroup);
         })
-        })
+        //})
 
         overlayTree.children.push({label: "NWS Alerts", layer: NWSgroup});
         NWSgroup.addTo(map);
