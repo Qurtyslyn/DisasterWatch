@@ -261,7 +261,7 @@
 
                     if(id.length === 1)
                     {
-                        var polygon = JSON.parse(nwsCoastalZones).find(item => item.features.properties.ID === id[0])
+                        var polygon = nwsCoastalZones.find(item => item.features.properties.ID === id[0])
                     }
                 }
 
