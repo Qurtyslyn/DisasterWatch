@@ -65,7 +65,13 @@ function addToLegend(event)
 
 //Function to escape text for HTML
 function escapeHTML(str) {
-    return str.replace(/[&<>'"?]/g,
+    if(str === null)
+    {
+        return  ""
+    }
+    else 
+    {
+        return str.replace(/[&<>'"?]/g,
         tag => ({
             '&': '&amp;',
             '<': '&lt;',
@@ -73,8 +79,9 @@ function escapeHTML(str) {
             "'": '&#39;',
             '"': '&quot;',
             '?': '&#39;', //Volanoes XML data has ? in place of '
-        }[tag] || tag)
-    );
+        }[tag] || tag));
+    }
+    
 }
 
 //Functions to create Popup texts for Alert types
