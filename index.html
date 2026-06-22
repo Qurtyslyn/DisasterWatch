@@ -251,22 +251,22 @@
         //         console.log(item);
         // //     feature.geometry = item.geometry.coordinates;
         //     }
-            console.log(NWSresponse.features);
+            // console.log(NWSresponse.features);
 
-            NWSresponse.features.forEach(data => {
-                if(data.geometry === null)
-                {
-                    var id = data.properties.geocode.UGC
+            // NWSresponse.features.forEach(data => {
+            //     if(data.geometry === null)
+            //     {
+            //         var id = data.properties.geocode.UGC
 
-                    if(id.length === 1)
-                    {
-                        var polygon = coastalZones.prototype.find(item => item.features.properties.ID === id[0]);
+            //         if(id.length === 1)
+            //         {
+            //             var polygon = coastalZones.prototype.find(item => item.features.properties.ID === id[0]);
 
-                    }
-                }
+            //         }
+            //     }
 
-                console.log(polygon);
-            })
+            //     console.log(polygon);
+            // })
 
             
 
