@@ -56,7 +56,7 @@
         var volcanoURL = "./Volcanoes.geojson";
         var hurricaneURL = './Hurricanes.geojson';
         var nwsCoastalZonesURL = './NWSCoastalZones.geojson';
-        var nwsZonesURL = './NWSZones.geojson';
+        var nwsAlerts = './NWS.geojson';
 
         // const coastalResponse = await fetch(nwsCoastalZonesURL);
         // const coastalNWS = await coastalResponse.json()
@@ -239,7 +239,8 @@
 
         //nwsCoastalZones.then(coastalZones => {
         //Add NWS Alerts Layer to Map
-        const NWSresponse = fetch(nwsURL, {headers: {"accept": "application/geo+json"}}).then(NWSresponse => NWSresponse.json()).then(NWSresponse => {
+        //const NWSresponse = fetch(nwsURL, {headers: {"accept": "application/geo+json"}}).then(NWSresponse => NWSresponse.json()).then(NWSresponse => {
+        const NWSresponse = fetch(nwsAlerts).then(NWSresponse => NWSresponse.json()).then(NWSresponse => {
             //Add geometry to zones that do not have it.
             // NWSresponse.forEach(feature => {
             //     console.log(feature);
