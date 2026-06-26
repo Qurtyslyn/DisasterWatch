@@ -2,24 +2,24 @@
 function getPolygonColors (eventName)
 {
     switch(eventName) {
-    case "Flood Advisory" : return {color: "#0000FF",fillColor: "#27F5EE"}; break;
-    case "Flood Watch" : return {color: "#0000FF",fillColor: "#27A3F5"}; break;
+    case "Flood Advisory" : return {color: "#0000FF",fillColor: "#27F5EE", weight:2}; break;
+    case "Flood Watch" : return {color: "#0000FF",fillColor: "#27A3F5", weight:1}; break;
     case "Flood Warning" : return {color: "#0000FF",fillColor: "#0000FF", fillOpacity: 0.65}; break;
-    case "Flash Flood Advisory" : return {color: "#0000FF",fillColor: "#FFC4FA"}; break;
-    case "Flash Flood Watch" : return {color: "#0000FF",fillColor: "#FF91F5"}; break;
+    case "Flash Flood Advisory" : return {color: "#0000FF",fillColor: "#FFC4FA", weight:2}; break;
+    case "Flash Flood Watch" : return {color: "#0000FF",fillColor: "#FF91F5", weight:1}; break;
     case "Flash Flood Warning" : return {color: "#0000FF",fillColor: "#FF2EEE", fillOpacity: 0.65}; break;
     case "Special Marine Warning" : return {color: "#F57627",fillColor: "#F5E427"}; break;
     case "Severe Thunderstorm Warning" : return {color: "#F57627",fillColor: "#F57627"}; break;
     case "Special Weather Statement" : return {color: "#FF00FF",fillColor: "#FF00FF"}; break;
     case "Marine Weather Statement" : return {color: "#FF00FF",fillColor: "#F5E427"}; break;
-    case "Dust Advisory" : return {color: "#6E5937",fillColor: "#6E5937"}; break;
+    case "Dust Advisory" : return {color: "#6E5937",fillColor: "#6E5937", weight:1}; break;
     case "Local Area Emergency" : return {color: "#FF0000",fillColor: "#0000FF", fillOpacity: 0.65}; break;
     case "Tornado Warning" : return {color: "#FF0000",fillColor: "#ffff00", fillOpacity: 0.65}; break;
-    case "Tornado Watch" : return {color: "#ffff00",fillColor: "#ffff00"}; break;
+    case "Tornado Watch" : return {color: "#ffff00",fillColor: "#ffff00", weight:2}; break;
     case "Tropical Storm Warning" : return {color: "#ffb700",fillColor: "#ffff00", fillOpacity: 0.65}; break;
-    case "Tropical Storm Watch" : return {color: "#ffb700",fillColor: "#ffb700"}; break;
+    case "Tropical Storm Watch" : return {color: "#ffb700",fillColor: "#ffb700", weight:2}; break;
     case "Small Craft Advisory" : return {color: "#d870d8",fillColor: "#D8BFD8", fillOpacity: 0.4, weight:1, dashArray:"4 1"}; break;
-    case "Gale Warning" : return {color: "#DDA0DD",fillColor: "#DDA0DD", fillOpacity: 0.4, weight:1, dashArray:"4 1"}; break;
+    case "Gale Warning" : return {color: "#DDA0DD",fillColor: "#DDA0DD", fillOpacity: 0.4, dashArray:"4 1"}; break;
     case "Brisk Wind Advisory" : return {color: "#d870d8",fillColor: "#D8BFD8", fillOpacity: 0.4, weight:1, dashArray:"4 1"}; break;
     default: return {color: "#000000",fillColor: "#000000"};
 
