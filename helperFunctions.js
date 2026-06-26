@@ -18,6 +18,9 @@ function getPolygonColors (eventName)
     case "Tornado Watch" : return {color: "#ffff00",fillColor: "#ffff00"}; break;
     case "Tropical Storm Warning" : return {color: "#ffb700",fillColor: "#ffff00", fillOpacity: 0.65}; break;
     case "Tropical Storm Watch" : return {color: "#ffb700",fillColor: "#ffb700"}; break;
+    case "Small Craft Advisory" : return {color: "#d870d8",fillColor: "#D8BFD8", fillOpacity: 0.4, weight:1, dashArray:"4 1"}; break;
+    case "Gale Warning" : return {color: "#DDA0DD",fillColor: "#DDA0DD", fillOpacity: 0.4, weight:1, dashArray:"4 1"}; break;
+    case "Brisk Wind Advisory" : return {color: "#d870d8",fillColor: "#D8BFD8", fillOpacity: 0.4, weight:1, dashArray:"4 1"}; break;
     default: return {color: "#000000",fillColor: "#000000"};
 
     }
