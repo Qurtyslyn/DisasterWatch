@@ -21,6 +21,19 @@ function getPolygonColors (eventName)
     case "Small Craft Advisory" : return {color: "#d870d8",fillColor: "#D8BFD8", fillOpacity: 0.4, weight:1, dashArray:"4 1"}; break;
     case "Gale Warning" : return {color: "#DDA0DD",fillColor: "#DDA0DD", fillOpacity: 0.4, dashArray:"4 1"}; break;
     case "Brisk Wind Advisory" : return {color: "#d870d8",fillColor: "#D8BFD8", fillOpacity: 0.4, weight:1, dashArray:"4 1"}; break;
+    case "Winter Weather Advisory" : return {color: "#00d2fc",fillColor: "#cf79f8", weight:2, fillOpacity: 0.65}; break;
+    case "High Wind Warning" : return {color: "#908475",fillColor: "#9c7f5b", fillOpacity: 0.65}; break;
+    case "High Wind Watch" : return {color: "#908475",fillColor: "#9c7f5b", weight:2, fillOpacity: 0.45}; break;
+    case "Red Flag Warning" : return {color: "#ff0000",fillColor: "#9c7f5b", fillOpacity: 0.65}; break;
+    case "Heat Advisory" : return {color: "#ff7d7d",fillColor: "#dd9d9d", weight:2, fillOpacity: 0.65}; break;
+    case "Dense Fog Advisory" : return {color: "#1e63be",fillColor: "#7bb1db", weight:2, fillOpacity: 0.65}; break;
+    case "Extreme Heat Watch" : return {color: "#f74d4d",fillColor: "#dd9d9d", fillOpacity: 0.65}; break;
+    case "Air Quality Alert" : return {color: "#676767",fillColor: "#acdce7", weight:2, fillOpacity: 0.65}; break;
+    case "Heat Advisory" : return {color: "#ff7d7d",fillColor: "#dd9d9d", weight:2, fillOpacity: 0.65}; break;
+    case "Fire Weather Watch" : return {color: "#f74d4d",fillColor: "#dd9d9d", weight:2, fillOpacity: 0.65, dashArray:"4 1"}; break;
+    case "Lake Wind Advisory" : return {color: "#3f82f6",fillColor: "#9c7f5b", weight:2, fillOpacity: 0.65}; break;
+    case "Wind Advisory" : return {color: "#7f694f",fillColor: "#9c7f5b", weight:2, fillOpacity: 0.65}; break;
+    case "Hazardous Seas Warning" : return {color: "#d870d8",fillColor: "#9c7f5b", weight:2, fillOpacity: 0.65}; break;
     default: return {color: "#000000",fillColor: "#000000"};
 
     }
