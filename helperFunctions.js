@@ -10,6 +10,7 @@ function getPolygonColors (eventName)
     case "Flash Flood Warning" : return {color: "#0000FF",fillColor: "#FF2EEE", fillOpacity: 0.65}; break;
     case "Special Marine Warning" : return {color: "#F57627",fillColor: "#F5E427"}; break;
     case "Severe Thunderstorm Warning" : return {color: "#F57627",fillColor: "#F57627"}; break;
+    case "Severe Thunderstorm Watch" : return {color: "#F57627",fillColor: "#F57627", weight: 1, fillOpacity: 0.65}; break;
     case "Special Weather Statement" : return {color: "#FF00FF",fillColor: "#FF00FF"}; break;
     case "Marine Weather Statement" : return {color: "#FF00FF",fillColor: "#F5E427"}; break;
     case "Dust Advisory" : return {color: "#6E5937",fillColor: "#6E5937", weight:1}; break;
@@ -27,13 +28,15 @@ function getPolygonColors (eventName)
     case "Red Flag Warning" : return {color: "#ff0000",fillColor: "#9c7f5b", fillOpacity: 0.65}; break;
     case "Heat Advisory" : return {color: "#ff7d7d",fillColor: "#dd9d9d", weight:2, fillOpacity: 0.65}; break;
     case "Dense Fog Advisory" : return {color: "#1e63be",fillColor: "#7bb1db", weight:2, fillOpacity: 0.65}; break;
-    case "Extreme Heat Watch" : return {color: "#f74d4d",fillColor: "#dd9d9d", fillOpacity: 0.65}; break;
+    case "Extreme Heat Watch" : return {color: "#f74d4d",fillColor: "#dd9d9d", fillOpacity: 0.65, weight: 1}; break;
+    case "Extreme Heat Warning" : return {color: "#f74d4d",fillColor: "#dd9d9d", fillOpacity: 0.80}; break;
     case "Air Quality Alert" : return {color: "#676767",fillColor: "#acdce7", weight:2, fillOpacity: 0.65}; break;
     case "Heat Advisory" : return {color: "#ff7d7d",fillColor: "#dd9d9d", weight:2, fillOpacity: 0.65}; break;
     case "Fire Weather Watch" : return {color: "#f74d4d",fillColor: "#dd9d9d", weight:2, fillOpacity: 0.65, dashArray:"4 1"}; break;
     case "Lake Wind Advisory" : return {color: "#3f82f6",fillColor: "#9c7f5b", weight:2, fillOpacity: 0.65}; break;
     case "Wind Advisory" : return {color: "#7f694f",fillColor: "#9c7f5b", weight:2, fillOpacity: 0.65}; break;
     case "Hazardous Seas Warning" : return {color: "#d870d8",fillColor: "#9c7f5b", weight:2, fillOpacity: 0.65}; break;
+    case "Beach Hazards Statement" : return {color: "#d870d8",fillColor: "#D8BFD8", weight:2, fillOpacity: 0.65}; break;
     default: return {color: "#000000",fillColor: "#000000"};
 
     }
